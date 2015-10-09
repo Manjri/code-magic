@@ -1,0 +1,14 @@
+﻿  kr_malloc_free.cpp
+c:\users\njagdale\documents\visual studio 2010\projects\practice\memory\kr_malloc_free.cpp(55): error C2036: 'void *' : unknown size
+  fastmemcpy.cpp
+c:\users\njagdale\documents\visual studio 2010\projects\practice\memory\fastmemcpy.cpp(49): error C2105: '++' needs l-value
+c:\users\njagdale\documents\visual studio 2010\projects\practice\memory\fastmemcpy.cpp(49): error C2105: '++' needs l-value
+c:\users\njagdale\documents\visual studio 2010\projects\practice\memory\fastmemcpy.cpp(49): error C2105: '++' needs l-value
+c:\users\njagdale\documents\visual studio 2010\projects\practice\memory\fastmemcpy.cpp(49): error C2105: '++' needs l-value
+c:\users\njagdale\documents\visual studio 2010\projects\practice\memory\fastmemcpy.cpp(49): error C2105: '++' needs l-value
+c:\users\njagdale\documents\visual studio 2010\projects\practice\memory\fastmemcpy.cpp(49): error C2105: '++' needs l-value
+c:\users\njagdale\documents\visual studio 2010\projects\practice\memory\fastmemcpy.cpp(49): error C2440: '=' : cannot convert from 'uint8_t *' to 'uint8_t [4]'
+          There are no conversions to array types, although there are conversions to references or pointers to arrays
+c:\users\njagdale\documents\visual studio 2010\projects\practice\memory\fastmemcpy.cpp(49): error C2440: '=' : cannot convert from 'uint8_t *' to 'uint8_t [4]'
+          There are no conversions to array types, although there are conversions to references or pointers to arrays
+  Generating Code...

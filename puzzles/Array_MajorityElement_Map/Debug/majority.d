@@ -1,0 +1,1 @@
+majority.d: ../majority.cpp

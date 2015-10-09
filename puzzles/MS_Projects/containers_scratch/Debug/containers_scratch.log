@@ -1,0 +1,24 @@
+﻿  main.cpp
+c:\users\njagdale\documents\visual studio 2010\projects\practice\containers_scratch\main.cpp(151): error C2059: syntax error : 'for'
+c:\users\njagdale\documents\visual studio 2010\projects\practice\containers_scratch\main.cpp(151): error C2143: syntax error : missing ')' before ';'
+c:\users\njagdale\documents\visual studio 2010\projects\practice\containers_scratch\main.cpp(151): error C2143: syntax error : missing ';' before '<'
+c:\users\njagdale\documents\visual studio 2010\projects\practice\containers_scratch\main.cpp(151): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\njagdale\documents\visual studio 2010\projects\practice\containers_scratch\main.cpp(151): error C2143: syntax error : missing ';' before '++'
+c:\users\njagdale\documents\visual studio 2010\projects\practice\containers_scratch\main.cpp(151): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\njagdale\documents\visual studio 2010\projects\practice\containers_scratch\main.cpp(151): error C2086: 'int nCount' : redefinition
+          c:\users\njagdale\documents\visual studio 2010\projects\practice\containers_scratch\main.cpp(151) : see declaration of 'nCount'
+c:\users\njagdale\documents\visual studio 2010\projects\practice\containers_scratch\main.cpp(151): error C2059: syntax error : ')'
+c:\users\njagdale\documents\visual studio 2010\projects\practice\containers_scratch\main.cpp(155): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\njagdale\documents\visual studio 2010\projects\practice\containers_scratch\main.cpp(155): error C2371: 'it' : redefinition; different basic types
+          c:\users\njagdale\documents\visual studio 2010\projects\practice\containers_scratch\main.cpp(154) : see declaration of 'it'
+c:\users\njagdale\documents\visual studio 2010\projects\practice\containers_scratch\main.cpp(155): error C2440: 'initializing' : cannot convert from 'std::_List_iterator<_Mylist>' to 'int'
+          with
+          [
+              _Mylist=std::_List_val<int,std::allocator<int>>
+          ]
+          No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+c:\users\njagdale\documents\visual studio 2010\projects\practice\containers_scratch\main.cpp(157): error C2059: syntax error : 'while'
+c:\users\njagdale\documents\visual studio 2010\projects\practice\containers_scratch\main.cpp(158): error C2143: syntax error : missing ';' before '{'
+c:\users\njagdale\documents\visual studio 2010\projects\practice\containers_scratch\main.cpp(158): error C2447: '{' : missing function header (old-style formal list?)
+c:\users\njagdale\documents\visual studio 2010\projects\practice\containers_scratch\main.cpp(162): error C2143: syntax error : missing ';' before '<<'
+c:\users\njagdale\documents\visual studio 2010\projects\practice\containers_scratch\main.cpp(162): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int

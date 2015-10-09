@@ -1,0 +1,1 @@
+countOnes.d: ../countOnes.c
