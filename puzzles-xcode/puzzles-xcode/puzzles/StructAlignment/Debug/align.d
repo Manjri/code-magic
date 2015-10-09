@@ -1,0 +1,1 @@
+align.d: ../align.c

@@ -1,0 +1,5 @@
+﻿  StackOverflow.c
+c:\users\njagdale\documents\visual studio 2010\projects\practice\securecodeexamples\stackoverflow.c(21): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 10.0\vc\include\string.h(105) : see declaration of 'strcpy'
+c:\users\njagdale\documents\visual studio 2010\projects\practice\securecodeexamples\stackoverflow.c(51): warning C4013: 'getch' undefined; assuming extern returning int
+  SecureCodeExamples.vcxproj -> C:\Users\njagdale\Documents\Visual Studio 2010\Projects\Practice\Debug\SecureCodeExamples.exe

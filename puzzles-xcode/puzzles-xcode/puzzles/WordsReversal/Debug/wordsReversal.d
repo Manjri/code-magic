@@ -1,0 +1,1 @@
+wordsReversal.d: ../wordsReversal.c

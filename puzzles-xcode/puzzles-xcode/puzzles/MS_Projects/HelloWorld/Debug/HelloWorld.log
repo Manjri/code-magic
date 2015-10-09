@@ -1,0 +1,4 @@
+﻿  hello.c
+c:\users\njagdale\documents\visual studio 2010\projects\practice\helloworld\hello.c(4): warning C4007: 'WinMain' : must be '__stdcall'
+MSVCRTD.lib(crtexew.obj) : error LNK2019: unresolved external symbol _WinMain@16 referenced in function ___tmainCRTStartup
+C:\Users\njagdale\Documents\Visual Studio 2010\Projects\Practice\Debug\HelloWorld.exe : fatal error LNK1120: 1 unresolved externals
