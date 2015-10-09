@@ -1,67 +1,83 @@
-#include <stdio.h>
+#include <iostream>
+#include <vector>
 
-int getSingle(int arr[], int n)
+using namespace std;
+
+
+template <class T>
+class Solution
 {
-    int ones = 0, twos = 0 ;
-    int i;
     
-    int common_bit_mask;
-    
-    // Let us take the example of {3, 3, 2, 3} to understand this
-    for(i=0; i< n; i++ )
+private:
+    void swap(vector<T>& v, int l, int h)
     {
-        /* The expression "one & arr[i]" gives the bits that are
-         there in both 'ones' and new element from arr[].  We
-         add these bits to 'twos' using bitwise OR
-         
-         Value of 'twos' will be set as 0, 3, 3 and 1 after 1st,
-         2nd, 3rd and 4th iterations respectively */
-        twos  = twos | (ones & arr[i]);
-        
-        
-        /* XOR the new bits with previous 'ones' to get all bits
-         appearing odd number of times
-         
-         Value of 'ones' will be set as 3, 0, 2 and 3 after 1st,
-         2nd, 3rd and 4th iterations respectively */
-        ones  = ones ^ arr[i];
-        
-        
-        /* The common bits are those bits which appear third time
-         So these bits should not be there in both 'ones' and 'twos'.
-         common_bit_mask contains all these bits as 0, so that the bits can
-         be removed from 'ones' and 'twos'
-         
-         Value of 'common_bit_mask' will be set as 00, 00, 01 and 10
-         after 1st, 2nd, 3rd and 4th iterations respectively */
-        common_bit_mask = ~(ones & twos);
-        
-        
-        /* Remove common bits (the bits that appear third time) from 'ones'
-         
-         Value of 'ones' will be set as 3, 0, 0 and 2 after 1st,
-         2nd, 3rd and 4th iterations respectively */
-        ones &= common_bit_mask;
-        
-        
-        /* Remove common bits (the bits that appear third time) from 'twos'
-         
-         Value of 'twos' will be set as 0, 3, 1 and 0 after 1st,
-         2nd, 3rd and 4th itearations respectively */
-        twos &= common_bit_mask;
-        
-        // uncomment this code to see intermediate values
-        //printf (" %d %d \n", ones, twos);
+        T temp = v[l];
+        v[l] = v[h];
+        v[h] = temp;
     }
     
-    return ones;
-}
+    void vector_print(vector<T> v)
+    {
+        for(int i = 0; i<v.size(); i++)
+            cout << v[i] << " ";
+        cout << endl;
+    }
+    
+    void permute_helper(vector<vector<T>>& result, vector<T> nums, int l, int h)
+    {
+        if(l == h)
+        {
+            result.push_back(nums);
+            vector_print(nums);
+        }
+        else
+        {
+            for(int i=l; i<=h; i++)
+            {
+                if(i!=l  && nums[i]==nums[l])   // trick to avoid printing dups (2)
+                    continue;
+                
+                swap(nums, l, i);
+                permute_helper(result, nums, l+1, h);   //backtracking using recursion
+            }
+        }
+    }
+    
+public:
+    vector<vector<T>> permuteUnique(vector<T>& nums)
+    {
+        vector<vector<T>> result;
+        sort(nums.begin(), nums.end());     // trick to avoid printing dups (1)
+        permute_helper(result, nums, 0, nums.size()-1);
+        return result;
+    }
+};
 
 int main()
 {
-    int arr[] = {3, 3, 2, 3, 2, 2, 1};
-    int n = sizeof(arr) / sizeof(arr[0]);
-    printf("The element with single occurrence is %d\n",
-           getSingle(arr, n));
+#if 0
+    Solution<int> s;
+    vector<int> vec;
+    vector<vector<int>> res;
+    
+    vec.push_back(1);
+    vec.push_back(1);
+    vec.push_back(2);
+    vec.push_back(2);
+#endif
+    
+    Solution<char> s;
+    vector<char> vec;
+    vector<vector<char>> res;
+    
+    vec.push_back('a');
+    vec.push_back('b');
+    vec.push_back('c');
+    vec.push_back('c');
+    
+    
+    res = s.permuteUnique(vec);
+    
     return 0;
 }
+
