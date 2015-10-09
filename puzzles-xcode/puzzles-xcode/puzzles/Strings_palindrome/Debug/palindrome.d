@@ -1,1 +1,0 @@
-palindrome.d: ../palindrome.cpp

@@ -1,4 +1,0 @@
-﻿  TicTacToe.c
-c:\users\njagdale\documents\visual studio 2010\projects\practice\tictactoe\tictactoe.c(79): warning C4047: 'return' : 'char' differs in levels of indirection from 'void *'
-MSVCRTD.lib(crtexe.obj) : error LNK2019: unresolved external symbol _main referenced in function ___tmainCRTStartup
-C:\Users\njagdale\Documents\Visual Studio 2010\Projects\Practice\Debug\TicTacToe.exe : fatal error LNK1120: 1 unresolved externals

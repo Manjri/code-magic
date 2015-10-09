@@ -1,4 +1,0 @@
-﻿  InsertionSort_Arrays.c
-c:\users\njagdale\documents\visual studio 2010\projects\practice\arrays\insertionsort_arrays.c(35): warning C4244: 'function' : conversion from 'time_t' to 'unsigned int', possible loss of data
-  LINK : C:\Users\njagdale\Documents\Visual Studio 2010\Projects\Practice\Debug\Arrays.exe not found or not built by the last incremental link; performing full link
-  Arrays.vcxproj -> C:\Users\njagdale\Documents\Visual Studio 2010\Projects\Practice\Debug\Arrays.exe

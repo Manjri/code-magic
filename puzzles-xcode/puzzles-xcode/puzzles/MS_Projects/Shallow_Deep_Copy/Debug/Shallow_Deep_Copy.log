@@ -1,3 +1,0 @@
-﻿  shallow_deep_copy.c
-MSVCRTD.lib(crtexe.obj) : error LNK2019: unresolved external symbol _main referenced in function ___tmainCRTStartup
-C:\Users\njagdale\Documents\Visual Studio 2010\Projects\Practice\Debug\Shallow_Deep_Copy.exe : fatal error LNK1120: 1 unresolved externals

@@ -1,1 +1,0 @@
-CountAndTell.d: ../CountAndTell.cpp

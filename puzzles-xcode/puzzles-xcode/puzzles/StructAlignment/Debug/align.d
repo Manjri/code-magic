@@ -1,1 +1,0 @@
-align.d: ../align.c

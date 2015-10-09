@@ -1,1 +1,0 @@
-BinRepDecimal.d: ../BinRepDecimal.c
