@@ -26,6 +26,7 @@
 		D06BA50C1BC847750063B8EC /* puzzles-xcode */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "puzzles-xcode"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D06BA50F1BC847750063B8EC /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		D06BA5171BC848990063B8EC /* puzzles */ = {isa = PBXFileReference; lastKnownFileType = folder; name = puzzles; path = ../puzzles; sourceTree = "<group>"; };
+		D06BA5181BC88ACC0063B8EC /* BillWeinman_ExerciseFiles_CPP */ = {isa = PBXFileReference; lastKnownFileType = folder; name = BillWeinman_ExerciseFiles_CPP; path = ../BillWeinman_ExerciseFiles_CPP; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +43,7 @@
 		D06BA5031BC847740063B8EC = {
 			isa = PBXGroup;
 			children = (
+				D06BA5181BC88ACC0063B8EC /* BillWeinman_ExerciseFiles_CPP */,
 				D06BA5171BC848990063B8EC /* puzzles */,
 				D06BA50E1BC847750063B8EC /* puzzles-xcode */,
 				D06BA50D1BC847750063B8EC /* Products */,
