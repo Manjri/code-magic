@@ -51,7 +51,7 @@ int longestIncreasingSubsequence(vector<int> input)
         // if input[i] is less than 0th value then replace it there
         if(input[i] < input[T[0]])
             T[0] = i;
-
+        
         // if input[i] is greater than the last value of T, then append it in T
         else if(input[i] > input[T[len]])
         {
@@ -93,6 +93,3 @@ int main()
     cout << "Maximum Length is: " << longestIncreasingSubsequence(vec) << endl;
     return 0;
 }
-
-
-

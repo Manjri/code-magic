@@ -201,6 +201,14 @@ int main() {
 	tree.insert(11);
 	tree.insert(14);
 
+    /**
+      8
+    4    12
+   2 7  11 14
+     
+     
+     */
+    
 	//tree.inOrder();
 	cout << tree.closestBST(9.7) << endl;
 
