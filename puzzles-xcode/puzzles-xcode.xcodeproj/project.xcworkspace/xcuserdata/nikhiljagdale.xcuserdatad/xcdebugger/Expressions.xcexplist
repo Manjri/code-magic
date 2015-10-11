@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "BST::closestBST(double):main.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "Solution::minMeetingRooms1(std::__1::vector&lt;Interval, std::__1::allocator&lt;Interval&gt; &gt;&amp;):main.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "BST::closestNodeBST(BST::Node*, double):main.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "knapSack(int, int*, int*, int):main.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "wt[i-1]">
+            </PersistentString>
+            <PersistentString
+               value = "K[i-1][w]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
