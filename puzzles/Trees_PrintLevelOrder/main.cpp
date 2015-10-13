@@ -26,7 +26,7 @@ void printLevelOrder(BinaryTree *root)
         if(currNode->left)
         {
             nodesQueue.push(currNode->left);
-            nodesInCurrentLevel++;
+            nodesInNextLevel++;
         }
         if(currNode->right)
         {
