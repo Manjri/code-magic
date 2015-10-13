@@ -29,7 +29,7 @@ public:
                 if (rt->left) Q.push(rt->left);
                 if (rt->right) Q.push(rt->right);
                 Q.pop();
-                if (rt->left==NULL && rt->right==NULL){
+                if (rt->left==NULL && rt->right==NULL){ // leaf node reached, just return the level
                     flag = true;
                     break;
                 }
