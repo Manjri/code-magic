@@ -81,7 +81,7 @@ struct node* inOrderSuccessor(struct node *root, struct node *n)
     
     // If right sbtree of node is NULL, then start from root and use search like technique.
     // Travel down the tree, if a node’s data is greater than root’s data then go right side,
-    // otherwise go to left side. Record the parent of the left child whose right child is this node
+    // otherwise go to left side. Record the parent of the left child whose child is this node
     else
     {
         struct node *succ = NULL;
