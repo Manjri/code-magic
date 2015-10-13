@@ -23,7 +23,7 @@ struct TreeNode
 class Solution
 {
 public:
-	int findMaxDepth(TreeNode* root)
+	int findMaxDepth(TreeNode* root)    // DFS
 	{
 		if(root == NULL)
 			return 0;
