@@ -9,6 +9,8 @@
 #include <iostream>
 using namespace std;
 
+// itertive solution - top-down approach
+
 struct TreeNode
 {
 	int val;
