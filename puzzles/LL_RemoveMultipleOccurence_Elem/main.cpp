@@ -9,8 +9,6 @@ struct node
     struct node *next;
 };
 
-/* Given a reference (pointer to pointer) to the head of a list
- and an int, inserts a new node on the front of the list. */
 void push(struct node** head_ref, int new_data)
 {
     struct node* new_node = (struct node*) malloc(sizeof(struct node));
@@ -19,11 +17,9 @@ void push(struct node** head_ref, int new_data)
     (*head_ref)    = new_node;
 }
 
-/* Given a reference (pointer to pointer) to the head of a list and
- a key, deletes all occurrence of the given key in linked list */
+
 void deleteKey(struct node **head_ref, int key)
 {
-    // Store head node
     struct node* temp = *head_ref, *prev;
     
     // If head node itself holds the key or multiple occurrences of key
