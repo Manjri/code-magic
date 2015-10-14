@@ -1,33 +1,36 @@
 #include <iostream>
-#include <vector>
 using namespace std;
 
 class Solution {
 public:
-    int BinSearch(vector<int> v, int x) {
+    int mySqrt(int x) {
         
         int low = 0;
-        int high = v.size()-1;
+        int high = x;
         int mid;
+        
+        if(x < 2)
+            return x;
         
         while(low < high){
             
             mid = (low+high)/2;
             
-            if(v[mid] < x){
+            // x > mid*mid
+            if(x/mid > mid){
                 low = mid+1;
             }
+            // x <= mid*mid;
             else{
                 high = mid;
             }
         }
-        return v[low] == x ? low : -1;
+        return low > x/low ? low-1: low;
     }
 };
 
 int main(){
     Solution s;
-    vector<int> vec = {1,2,3,4,5,6};
-    cout << s.BinSearch(vec,6) << endl;
+    cout << s.mySqrt(9) << endl;
     return 0;
 }
