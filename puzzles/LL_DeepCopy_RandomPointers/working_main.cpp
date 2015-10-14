@@ -7,7 +7,7 @@
  * };
  */
 #include <iostream>
-#include <map>
+#include <unordered_map>
 using namespace std;
 
 struct RandomListNode
@@ -23,50 +23,38 @@ public:
     {
         if(NULL == head)
             return NULL;
-     
-        map<RandomListNode*, RandomListNode*> connections;
+        
+        unordered_map<RandomListNode*, RandomListNode*> connections;  //hashmap (old-random, new-random)
         RandomListNode *copyHead = new RandomListNode(head->label);
-        RandomListNode *curr = copyHead;
-
+        RandomListNode *oldCurr = head;
+        RandomListNode *newCurr = copyHead;
         // add to map
-        connections.insert(make_pair(curr, head));
+        connections.insert(make_pair(head,copyHead));
         
-        head = head->next;
+        oldCurr = oldCurr->next;
         
-        while(head)
+        while(oldCurr)
         {
-            curr->next = new RandomListNode(head->label);
-            curr = curr->next;
-            
+            newCurr->next = new RandomListNode(oldCurr->label);
+            newCurr = newCurr->next;
             // add to map
-            connections.insert(make_pair(curr, head));
-            
-            head = head->next;
+            connections.insert(make_pair(oldCurr, newCurr));
+            oldCurr = oldCurr->next;
         }
         
-        curr = copyHead;
+        oldCurr = head;
+        newCurr = copyHead;
         
-        while(curr)
+        while(oldCurr)
         {
-            map<RandomListNode*, RandomListNode*>::iterator it;
-            
-            it = connections.find(curr);
-            
-            RandomListNode *temp = it->second;
-            
-            for(it = connections.begin(); it!= connections.end(); it++)
-            {
-                    if(temp->random == it->second)
-                    {
-                        curr->random = (RandomListNode*)it->first;
-                        break;
-                    }
-            }
-            curr = curr->next;
+            newCurr->random = connections[oldCurr->random]; //hash on the key (old-random)
+            oldCurr = oldCurr->next;
+            newCurr = newCurr->next;
         }
         
         return copyHead;
     }
+    
 };
 
 int main()
