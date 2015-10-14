@@ -21,7 +21,7 @@ public:
                 high = mid;
             }
         }
-        return v[low] == x ? low : -1;
+        return v[low] == x ? low : -1;  // low and high converge (but mid will not necessarily converge!)
     }
 };
 
