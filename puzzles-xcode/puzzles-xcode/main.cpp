@@ -2,32 +2,52 @@
 #include <vector>
 using namespace std;
 
-class Solution {
-public:
-    int BinSearch(vector<int> v, int x) {
+void reverse_string(char *string)
+{
+
+    if(string == NULL)
+        return;
+    
+    char* temp = string;
+    
+    while(temp && *temp)
+        temp++;
+    
+    temp--;
+    while(string < temp)
+    {
+        *string ^= *temp;
+        *temp   ^= *string;
+        *string ^= *temp;
         
-        int low = 0;
-        int high = v.size()-1;
-        int mid;
-        
-        while(low < high){
-            
-            mid = (low+high)/2;
-            
-            if(v[mid] < x){
-                low = mid+1;
-            }
-            else{
-                high = mid;
-            }
-        }
-        return v[low] == x ? low : -1;
+        string++;
+        temp--;
     }
-};
+}
+
+/* returns a pointer to a newly-allocated reversed string */
+char *reversed_string(const char *string)
+{
+    size_t count;
+    const char *temp = string;
+    
+    for(count = 0 ;temp && *temp; count++, temp++)
+        ;
+
+    char *newString = (char*)malloc(sizeof(char)*(count+1));
+    
+    memcpy(newString, string, (count+1));
+    reverse_string(newString);
+    
+    return newString;
+}
 
 int main(){
-    Solution s;
-    vector<int> vec = {1,2,3,4,5,6};
-    cout << s.BinSearch(vec,6) << endl;
+    
+    char s[] = "nikhil";
+    char *newStr = reversed_string(s);
+    if(newStr)
+        //cout << "string: " << s << endl;
+        cout << "string: " << newStr << endl;
     return 0;
 }
