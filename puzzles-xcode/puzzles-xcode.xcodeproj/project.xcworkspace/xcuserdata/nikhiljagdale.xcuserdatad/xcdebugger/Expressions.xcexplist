@@ -3,16 +3,33 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "BST::closestNodeBST(BST::Node*, double):main.cpp">
+      </ContextState>
+      <ContextState
          contextName = "Graph::DFSUtil(int, bool*):main.cpp">
       </ContextState>
       <ContextState
-         contextName = "BST::closestBST(double):main.cpp">
+         contextName = "Solution&lt;char&gt;::permute_helper(std::__1::vector&lt;std::__1::vector&lt;char, std::__1::allocator&lt;char&gt; &gt;, std::__1::allocator&lt;std::__1::vector&lt;char, std::__1::allocator&lt;char&gt; &gt; &gt; &gt;&amp;, std::__1::vector&lt;char, std::__1::allocator&lt;char&gt; &gt;, int, int):main.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "minCoinsBottomUp(int, int*, int):main.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "temp[j]">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "Solution::minMeetingRooms1(std::__1::vector&lt;Interval, std::__1::allocator&lt;Interval&gt; &gt;&amp;):main.cpp">
       </ContextState>
       <ContextState
-         contextName = "BST::closestNodeBST(BST::Node*, double):main.cpp">
+         contextName = "reverse_string(char*):main.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "reversed_string(char const*):main.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "BST::closestBST(double):main.cpp">
       </ContextState>
       <ContextState
          contextName = "knapSack(int, int*, int*, int):main.cpp">
@@ -21,9 +38,15 @@
                value = "wt[i-1]">
             </PersistentString>
             <PersistentString
+               value = "K[1][1]">
+            </PersistentString>
+            <PersistentString
                value = "K[i-1][w]">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Solution::wordBreak(std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;, std::__1::unordered_set&lt;std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;, std::__1::hash&lt;std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt; &gt;, std::__1::equal_to&lt;std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt; &gt;, std::__1::allocator&lt;std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt; &gt; &gt;&amp;):main.cpp">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

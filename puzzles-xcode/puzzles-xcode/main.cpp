@@ -1,53 +1,46 @@
-#include <iostream>
-#include <vector>
-using namespace std;
+#include <stdio.h>
+#include <limits.h>
 
-void reverse_string(char *string)
+#define MIN(a,b) ((a) < (b) ? (a) : (b))
+
+/**
+ * Bottom up way of solving this problem.
+ * Keep coins[] sorted. Otherwise temp[j-arr[i]) + 1 can become Integer.Max_value + 1 which
+ * can be very low negative number
+ */
+
+// Approach is to try to include the current coin value or to exclude it
+// Either way, the preference is to choose minumum number of coins
+
+int minCoinsBottomUp(int total, int coins[], int n)
 {
-
-    if(string == NULL)
-        return;
+    int temp[total+1];
     
-    char* temp = string;
+    // Base Case
+    temp[0] = 0;
     
-    while(temp && *temp)
-        temp++;
+    for(int i=1; i<=total; i++)
+        temp[i] = INT_MAX - 1;
     
-    temp--;
-    while(string < temp)
+    for(int i=0; i<n; i++)    // try all coins
     {
-        *string ^= *temp;
-        *temp   ^= *string;
-        *string ^= *temp;
-        
-        string++;
-        temp--;
+        for(int j=1; j<=total; j++)  // try all totals
+        {
+            if(j >= coins[i])
+            {
+                temp[j] = MIN(temp[j], temp[j-coins[i]]+1);
+            }
+        }
     }
+    return temp[total];
 }
 
-/* returns a pointer to a newly-allocated reversed string */
-char *reversed_string(const char *string)
+
+int main()
 {
-    size_t count;
-    const char *temp = string;
-    
-    for(count = 0 ;temp && *temp; count++, temp++)
-        ;
-
-    char *newString = (char*)malloc(sizeof(char)*(count+1));
-    
-    memcpy(newString, string, (count+1));
-    reverse_string(newString);
-    
-    return newString;
-}
-
-int main(){
-    
-    char s[] = "nikhil";
-    char *newStr = reversed_string(s);
-    if(newStr)
-        //cout << "string: " << s << endl;
-        cout << "string: " << newStr << endl;
+    int coins[] = {1, 5, 6, 8};
+    int total = 11;
+    int n = sizeof(coins)/sizeof(coins[0]);
+    printf("%d\n", minCoinsBottomUp(total, coins, n));
     return 0;
 }

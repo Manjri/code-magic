@@ -6,32 +6,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "puzzles-xcode/main.cpp"
-            timestampString = "466492843.797456"
+            timestampString = "466574414.721645"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "5"
-            endingLineNumber = "5"
-            landmarkName = "reverse_string(char *string)"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "minCoinsBottomUp(int total, int coins[], int n)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "puzzles-xcode/main.cpp"
-            timestampString = "466494000.19203"
+            timestampString = "466575864.444911"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "reversed_string(const char *string)"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "minCoinsBottomUp(int total, int coins[], int n)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
