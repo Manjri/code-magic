@@ -1,6 +1,6 @@
-We strongly recommend you to minimize your browser and try this yourself first.
 /**
-The idea is simple, we start from 1 and go till a number whose square is smaller than or equals to n. For every number x, we recur for n-x. Below is the recursive formula.
+The idea is simple, we start from 1 and go till a number whose square is smaller 
+ than or equals to n. For every number x, we recur for n-x. Below is the recursive formula.
 
 If n <= 3, then return n
 Else
