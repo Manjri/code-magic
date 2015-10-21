@@ -2,8 +2,8 @@
  
  Array = [ 1   2   9   4   -1 ]
  
- 1. Calculate Partial/Running sum: PS[i] = PS[i-1]+A[i] ... PS[-1] = 0
- 2. Calculate SumLeft: SumLeft[i] = PS[i-1]  ... PS[-1] = 0
+ 1. Calculate Partial/Running sum: PS[i] = PS[i-1]+A[i] (do: PS[-1] = 0)
+ 2. Calculate SumLeft: SumLeft[i] = PS[i-1]   (do PS[-1] = 0)
  3. Calculate SumRight: SumRight[i] = PS[n-1] - PS[i]
  
  Original_Array  1   2   9   4   -1
