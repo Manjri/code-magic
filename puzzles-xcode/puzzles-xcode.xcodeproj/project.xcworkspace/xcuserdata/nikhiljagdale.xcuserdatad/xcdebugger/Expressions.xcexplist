@@ -55,6 +55,26 @@
          contextName = "subsets(std::__1::vector&lt;int, std::__1::allocator&lt;int&gt; &gt;&amp;):main.cpp">
       </ContextState>
       <ContextState
+         contextName = "countDecodingDP(char*, int):main.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "count[i]">
+            </PersistentString>
+            <PersistentString
+               value = "digits[i-2]">
+            </PersistentString>
+            <PersistentString
+               value = "digits[i-1]">
+            </PersistentString>
+            <PersistentString
+               value = "count[i-1]">
+            </PersistentString>
+            <PersistentString
+               value = "count[i-2]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "Solution::subsets(std::__1::vector&lt;int, std::__1::allocator&lt;int&gt; &gt;&amp;):main.cpp">
       </ContextState>
       <ContextState
