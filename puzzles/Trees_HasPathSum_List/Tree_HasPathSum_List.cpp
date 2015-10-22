@@ -18,44 +18,38 @@ struct TreeNode
 	TreeNode(int x): val(x), left(NULL), right(NULL) {}
 };
 
-class Solution
-{
-	void pathSumCalculate(TreeNode* root, int sum,
-							vector<vector<int>> &res,
-							vector<int> &curr_path)
-	{
-
-		if(root == NULL)
-			return;
-
-		if(!root->left && !root->right && (root->val == sum))
-		{
-			curr_path.push_back(root->val);
-			res.push_back(curr_path);
-			curr_path.pop_back();
-		}
-
-		curr_path.push_back(root->val);
-		pathSumCalculate(root->left, (sum - root->val), res, curr_path);
-		curr_path.pop_back();
-
-		curr_path.push_back(root->val);
-		pathSumCalculate(root->right, (sum - root->val), res, curr_path);
-		curr_path.pop_back();
-
-	}
-
-	vector<vector<int>> pathSum(TreeNode* root, int sum)
-	{
-		vector<vector<int>> res;
-		vector<int> curr_path;
-		pathSumCalculate(root, sum, res, curr_path);
-		return res;
-	}
-
-
+class Solution {
+public:
+    
+    void pathSumCalculate(TreeNode* root, int sum, vector<vector<int>> &res, vector<int> &curr_path)
+    {
+        if(root == NULL)
+            return;
+        
+        if(!root->left && !root->right && (root->val == sum))
+        {
+            curr_path.push_back(root->val);
+            res.push_back(curr_path);
+            curr_path.pop_back();
+        }
+        curr_path.push_back(root->val);
+        pathSumCalculate(root->left, (sum - root->val), res, curr_path);
+        pathSumCalculate(root->right, (sum - root->val), res, curr_path);
+        curr_path.pop_back();
+        
+    }
+    
+    vector<vector<int> > pathSum(TreeNode *root, int sum)
+    {
+        vector<vector<int>> res;
+        vector<int> curr_path;
+        
+        pathSumCalculate(root, sum, res, curr_path);
+        
+        return res;
+    }
+    
 };
-
 
 
 int main() {
