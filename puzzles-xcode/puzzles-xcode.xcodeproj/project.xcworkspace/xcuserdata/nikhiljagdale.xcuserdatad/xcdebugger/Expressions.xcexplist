@@ -9,6 +9,26 @@
          contextName = "isSafe(int (*) [4], int, int):main.cpp">
       </ContextState>
       <ContextState
+         contextName = "minWindow(char const*, char const*, int&amp;, int&amp;):main.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "needToFind[98]">
+            </PersistentString>
+            <PersistentString
+               value = "hasFound[97]">
+            </PersistentString>
+            <PersistentString
+               value = "needToFind[97]">
+            </PersistentString>
+            <PersistentString
+               value = "hasFound[98]">
+            </PersistentString>
+            <PersistentString
+               value = "hasFound[99]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "binary_search(int*, int, int):main.cpp">
       </ContextState>
       <ContextState
