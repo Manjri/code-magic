@@ -1,81 +1,43 @@
-/*
- ============================================================================
- Name        : SwapNibbles.c
- Author      : Nikhil Jagdale
- Version     :
- Copyright   : Your copyright notice
- Description : Hello World in C, Ansi-style
- ============================================================================
- */
 
-#include <iostream>
-#include <string>
-using namespace std;
+/* Dynamic Programming implementation of LIS problem */
+#include<stdio.h>
+#include<stdlib.h>
 
-/**
- Method 1 ( Brute Force )
- The simple approach is to check each substring whether the substring is a 
- palindrome or not. We can run three loops, the outer two loops pick all 
- substrings one by one by fixing the corner characters, the inner loop checks 
- whether the picked substring is palindrome or not.
- 
- Time complexity: O ( n^3 )
- Auxiliary complexity: O ( 1 )
-
- 
- Method 2 ( Dynamic Programming )
- The time complexity can be reduced by storing results of subproblems.  
- We maintain a boolean table[n][n] that is filled in bottom up manner. 
- The value of table[i][j] is true, if the substring is palindrome, otherwise false. 
- To calculate table[i][j], we first check the value of table[i+1][j-1], if the 
- value is true and str[i] is same as str[j], then we make table[i][j] true. 
- Otherwise, the value of table[i][j] is made false.
- 
- */
-
-
-string longestPalindromeDP(string s)
+/* lis() returns the length of the longest increasing subsequence in
+ arr[] of size n */
+int lis( int arr[], int n )
 {
-    int n = s.length();
-    int longestBegin = 0;
-    int maxLen = 1;
-    bool table[1000][1000] = {false};
+    int *lis, i, j, max = 0;
+    lis = (int*) malloc ( sizeof( int ) * n );
     
-    for(int i = 0; i < n; i++)
-        table[i][i] = true;
+    /* Initialize LIS values for all indexes */
+    for ( i = 0; i < n; i++ )
+        lis[i] = 1;
     
-    for(int i = 0; i < n - 1; i++)
-    {
-        if(s[i] == s[i+1])
-        {
-            table[i][i+1] = true;
-            longestBegin = i;
-            maxLen = 2;
-        }
-    }
+    /* Compute optimized LIS values in bottom up manner */
+    for ( i = 1; i < n; i++ )
+        for ( j = 0; j < i; j++ )
+            if ( arr[i] > arr[j] && lis[i] < lis[j] + 1)
+                lis[i] = lis[j] + 1;
     
-    for(int len = 3; len <= n; len++)
-    {
-        for(int i = 0; i < n - len +1; i++)
-        {
-            int j = i+len-1;
-            if( s[i] == s[j] && table[i+1][j-1])
-            {
-                table[i][j] = true;
-                longestBegin = i;
-                maxLen = len;
-            }
-        }
-    }
-    return s.substr(longestBegin, maxLen);
+    /* Pick maximum of all LIS values */
+    for ( i = 0; i < n; i++ )
+        if ( max < lis[i] )
+            max = lis[i];
+    
+    /* Free memory to avoid memory leak */
+    free( lis );
+    
+    return max;
 }
 
-
+/* Driver program to test above function */
 int main()
 {
-    string s("ababa");
-    cout << longestPalindromeDP(s) << endl;
+    int arr[] = { 10, 22, 9, 33, 21, 50, 41, 60 };
+    int n = sizeof(arr)/sizeof(arr[0]);
+    printf("Length of LIS is %d\n", lis( arr, n ) );
     
+    getchar();
     return 0;
 }
-
