@@ -1,70 +1,81 @@
-#include<iostream>
-#include <list>
+/*
+ ============================================================================
+ Name        : SwapNibbles.c
+ Author      : Nikhil Jagdale
+ Version     :
+ Copyright   : Your copyright notice
+ Description : Hello World in C, Ansi-style
+ ============================================================================
+ */
+
+#include <iostream>
+#include <string>
 using namespace std;
 
-class Graph
-{
-    int V;    // No. of vertices
-    list<int> *adj;    // Pointer to an array containing adjacency lists
-    void DFSUtil(int v, bool visited[]);  // A function used by DFS
-public:
-    Graph(int V);   // Constructor
-    void addEdge(int v, int w);   // function to add an edge to graph
-    void DFS();    // prints DFS traversal of the complete graph
-};
+/**
+ Method 1 ( Brute Force )
+ The simple approach is to check each substring whether the substring is a 
+ palindrome or not. We can run three loops, the outer two loops pick all 
+ substrings one by one by fixing the corner characters, the inner loop checks 
+ whether the picked substring is palindrome or not.
+ 
+ Time complexity: O ( n^3 )
+ Auxiliary complexity: O ( 1 )
 
-Graph::Graph(int V)
-{
-    this->V = V;
-    adj = new list<int>[V];
-}
+ 
+ Method 2 ( Dynamic Programming )
+ The time complexity can be reduced by storing results of subproblems.  
+ We maintain a boolean table[n][n] that is filled in bottom up manner. 
+ The value of table[i][j] is true, if the substring is palindrome, otherwise false. 
+ To calculate table[i][j], we first check the value of table[i+1][j-1], if the 
+ value is true and str[i] is same as str[j], then we make table[i][j] true. 
+ Otherwise, the value of table[i][j] is made false.
+ 
+ */
 
-void Graph::addEdge(int v, int w)
-{
-    adj[v].push_back(w); // Add w to v’s list.
-}
 
-void Graph::DFSUtil(int v, bool visited[])
+string longestPalindromeDP(string s)
 {
-    // Mark the current node as visited and print it
-    visited[v] = true;
-    cout << v << " ";
+    int n = s.length();
+    int longestBegin = 0;
+    int maxLen = 1;
+    bool table[1000][1000] = {false};
     
-    // Recur for all the vertices adjacent to this vertex
-    list<int>::iterator i;
-    for(i = adj[v].begin(); i != adj[v].end(); ++i)
-        if(!visited[*i])
-            DFSUtil(*i, visited);
+    for(int i = 0; i < n; i++)
+        table[i][i] = true;
+    
+    for(int i = 0; i < n - 1; i++)
+    {
+        if(s[i] == s[i+1])
+        {
+            table[i][i+1] = true;
+            longestBegin = i;
+            maxLen = 2;
+        }
+    }
+    
+    for(int len = 3; len <= n; len++)
+    {
+        for(int i = 0; i < n - len +1; i++)
+        {
+            int j = i+len-1;
+            if( s[i] == s[j] && table[i+1][j-1])
+            {
+                table[i][j] = true;
+                longestBegin = i;
+                maxLen = len;
+            }
+        }
+    }
+    return s.substr(longestBegin, maxLen);
 }
 
-// The function to do DFS traversal. It uses recursive DFSUtil()
-void Graph::DFS()
-{
-    // Mark all the vertices as not visited
-    bool *visited = new bool[V];
-    for(int i = 0; i < V; i++)
-        visited[i] = false;
-    
-    // Call the recursive helper function to print DFS traversal
-    // starting from all vertices one by one
-    for(int i = 0; i < V; i++)
-        if(visited[i] == false)
-            DFSUtil(i, visited);
-}
 
 int main()
 {
-    // Create a graph given in the above diagram
-    Graph g(4);
-    g.addEdge(0, 1);
-    g.addEdge(0, 2);
-    g.addEdge(1, 2);
-    g.addEdge(2, 0);
-    g.addEdge(2, 3);
-    g.addEdge(3, 3);
-    
-    cout << "Following is Depth First Traversal (starting from vertex 0) \n";
-    g.DFS();
+    string s("ababa");
+    cout << longestPalindromeDP(s) << endl;
     
     return 0;
 }
+
