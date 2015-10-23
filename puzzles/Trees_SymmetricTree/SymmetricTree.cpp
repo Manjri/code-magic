@@ -73,33 +73,33 @@ public:
 
 };
 
+// Recursive Solution
 
 class Solution {
-
+    
 public:
-
+    
     bool isSymmetric(TreeNode *left, TreeNode* right)
     {
-    	if(!left)
-    		return right == NULL;
-    	if(!right)
-    		return left == NULL;
-    	if(left->val != right->val)
-    		return false;
-    	if(!isSymmetric(left->left, right->right))
-    		return false;
-    	if(!isSymmetric(left->right, right->left))
-    		return false;
-    	return true;
+        if(!left)
+            return right == NULL;
+        if(!right)
+            return left == NULL;
+        if(left->val != right->val)
+            return false;
+        
+        return (isSymmetric(left->left, right->right) &&
+                isSymmetric(left->right, right->left));
     }
-
+    
     bool isSymmetric(TreeNode *root)
     {
-    	if(!root)
-    		return true;
-
-    	return (isSymmetric(root->left, root->right));
+        if(!root)
+            return true;
+        
+        return (isSymmetric(root->left, root->right));
     }
+    
 };
 
 int main()
