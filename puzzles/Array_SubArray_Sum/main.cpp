@@ -4,6 +4,31 @@
 
 #include<stdio.h>
 
+// submitted to fb
+bool isSum(int arr[], int n, int target){
+    
+    int i = 0;
+    int sum = 0;
+    
+    for(int k = 0; k<n; k++){
+        
+        sum+= arr[k];
+        
+        if(sum == target)
+            return true;
+        
+        while(i<=k && sum>target){
+            sum -= arr[i];
+            i++;
+            
+            if(sum == target)
+                return true;
+        }
+        
+    }
+    return sum==target;
+}
+
 
 int subArraySum(int arr[], int n, int sum)
 {
