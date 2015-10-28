@@ -126,7 +126,8 @@ public:
 #endif
 
 int main(){
-    
+
+// test for LL-implemenation
     MyStack ms;
     int result;
     
@@ -152,6 +153,7 @@ int main(){
     assert(ms.pop()==false);
     
 #if 0
+// test for array-implementation
     MyStack ms(5);
     int result;
     
