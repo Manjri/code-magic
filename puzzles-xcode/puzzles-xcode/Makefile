@@ -1,0 +1,1 @@
+g++ -o main.cpp base64_scheme1.cpp base64_scheme2.cpp arxan
