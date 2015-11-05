@@ -6,6 +6,9 @@
          contextName = "CentreOfGravity(int*, int):main.cpp">
       </ContextState>
       <ContextState
+         contextName = "print():main.cpp">
+      </ContextState>
+      <ContextState
          contextName = "Solution::shortestDistance(std::__1::vector&lt;std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;, std::__1::allocator&lt;std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt; &gt; &gt;&amp;, std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;, std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;):main.cpp">
          <PersistentStrings>
             <PersistentString
@@ -18,6 +21,9 @@
       </ContextState>
       <ContextState
          contextName = "isSafe(int (*) [4], int, int):main.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "insert(trie*, char*):main.cpp">
       </ContextState>
       <ContextState
          contextName = "minWindow(char const*, char const*, int&amp;, int&amp;):main.cpp">
@@ -55,10 +61,10 @@
          contextName = "countDecodingDP(char*, int):main.cpp">
          <PersistentStrings>
             <PersistentString
-               value = "digits[i-2]">
+               value = "count[i]">
             </PersistentString>
             <PersistentString
-               value = "count[i]">
+               value = "digits[i-2]">
             </PersistentString>
             <PersistentString
                value = "digits[i-1]">
@@ -92,10 +98,10 @@
                value = "digits">
             </PersistentString>
             <PersistentString
-               value = "digits[n-1]">
+               value = "digits[n-2]">
             </PersistentString>
             <PersistentString
-               value = "digits[n-2]">
+               value = "digits[n-1]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -135,6 +141,9 @@
          contextName = "BST::closestNodeBST(BST::Node*, double):main.cpp">
       </ContextState>
       <ContextState
+         contextName = "fib_dp(int):main.cpp">
+      </ContextState>
+      <ContextState
          contextName = "Solution&lt;char&gt;::permute_helper(std::__1::vector&lt;std::__1::vector&lt;char, std::__1::allocator&lt;char&gt; &gt;, std::__1::allocator&lt;std::__1::vector&lt;char, std::__1::allocator&lt;char&gt; &gt; &gt; &gt;&amp;, std::__1::vector&lt;char, std::__1::allocator&lt;char&gt; &gt;, int, int):main.cpp">
       </ContextState>
       <ContextState
@@ -142,6 +151,9 @@
       </ContextState>
       <ContextState
          contextName = "Solution::wordBreak(std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;, std::__1::unordered_set&lt;std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt;, std::__1::hash&lt;std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt; &gt;, std::__1::equal_to&lt;std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt; &gt;, std::__1::allocator&lt;std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt; &gt; &gt;&amp;):main.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "MyStack&lt;int&gt;::push(int):main.cpp">
       </ContextState>
       <ContextState
          contextName = "Graph::DFSUtil(int, bool*):main.cpp">
