@@ -61,6 +61,13 @@ private:
 			BinTreePreOrder(rec->right);
 		}
 	}
+    void BinTreeReverseOrder(Node *rec){
+        if(rec){
+            BinTreeReverseOrder(rec->right);
+            cout << rec->key << endl;
+            BinTreeReverseOrder(rec->left);
+        }
+    }
 	void BinTreePostOrder(Node* rec)
 	{
 		if(rec)
@@ -180,6 +187,10 @@ public:
 	{
 		BinTreeInOrder(root);
 	}
+    // opposite order of inOrder()
+    void reverseOrder(){
+        BinTreeReverseOrder(root);
+    }
 	void deleteTree()
 	{
 		BinTreeDestroy(root);
@@ -202,10 +213,13 @@ int main()
 {
 	BST myBST;
 
-	myBST.insert(2);
-	myBST.insert(3);
-	myBST.insert(1);
-	myBST.insert(4);
+    myBST.insert(4);
+    myBST.insert(2);
+    myBST.insert(1);
+    myBST.insert(3);
+    myBST.insert(6);
+    myBST.insert(5);
+    myBST.insert(7);
 
 	myBST.inOrder();
 	myBST.preOrder();
