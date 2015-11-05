@@ -22,8 +22,8 @@ unsigned char rotateRight(unsigned char x, int n){
 unsigned char rotateLeft(unsigned char x, int n){
     
     unsigned char temp = x;
-    temp = temp >>(8-n);   // left-shift the bits that would otherwise be lost
-    x = x << n;             // right-shift by n
+    temp = temp >>(8-n);   // right-shift the bits that would otherwise be lost
+    x = x << n;             // left-shift by n
     return (x | temp);      // or the two
 }
 
@@ -37,7 +37,7 @@ int main()
     printf("%x\n", rotateRight(x, 3));
     x = 0x4;
     printf("%x\n", x);
-    printf("%x\n", rotateLeft(x, 3));
+    printf("%x\n", rotateLeft(x, 6));
 
     
     return 0;
