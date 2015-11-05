@@ -1,5 +1,5 @@
 //
-//  base_64.h
+//  base64.h
 //  puzzles-xcode
 //
 //  Created by Nikhil Jagdale on 11/1/15.
@@ -11,17 +11,13 @@
 #include <string>
 using namespace std;
 
-
 /** 
-base_64 is an abstract class containing interfaces for encode & decode
-These pure virtual functions will be defined by derived classes of base_64
+base64 is an abstract class containing interfaces for encode & decode
+These pure virtual functions will be defined by derived classes of base64
 with their versions of encode() and decode() schemes
 */
 
 class base64{
-    
-private:
-    string mapping;
     
 public:
     virtual string encode(string source) = 0;

@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D06BA5101BC847750063B8EC /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = D06BA50F1BC847750063B8EC /* main.c */; };
-		D0B5D2561BEB0031008F744E /* sum_as_template.c in Sources */ = {isa = PBXBuildFile; fileRef = D0B5D2551BEB0031008F744E /* sum_as_template.c */; settings = {ASSET_TAGS = (); }; };
-		D0B5D2591BEB009C008F744E /* all_possible_sums.c in Sources */ = {isa = PBXBuildFile; fileRef = D0B5D2571BEB009C008F744E /* all_possible_sums.c */; settings = {ASSET_TAGS = (); }; };
+		D0B5D26B1BEBC277008F744E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0B5D2681BEBC277008F744E /* main.cpp */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,14 +24,9 @@
 
 /* Begin PBXFileReference section */
 		D06BA50C1BC847750063B8EC /* puzzles-xcode */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "puzzles-xcode"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D06BA50F1BC847750063B8EC /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		D06BA5171BC848990063B8EC /* puzzles */ = {isa = PBXFileReference; lastKnownFileType = folder; name = puzzles; path = ../puzzles; sourceTree = "<group>"; };
 		D06BA5181BC88ACC0063B8EC /* BillWeinman_ExerciseFiles_CPP */ = {isa = PBXFileReference; lastKnownFileType = folder; name = BillWeinman_ExerciseFiles_CPP; path = ../BillWeinman_ExerciseFiles_CPP; sourceTree = "<group>"; };
-		D0B5D2531BEAFFCC008F744E /* templates.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = templates.h; sourceTree = "<group>"; };
-		D0B5D2541BEB0003008F744E /* sum_as_template.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sum_as_template.h; sourceTree = "<group>"; };
-		D0B5D2551BEB0031008F744E /* sum_as_template.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sum_as_template.c; sourceTree = "<group>"; };
-		D0B5D2571BEB009C008F744E /* all_possible_sums.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = all_possible_sums.c; sourceTree = "<group>"; };
-		D0B5D2581BEB009C008F744E /* all_possible_sums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = all_possible_sums.h; sourceTree = "<group>"; };
+		D0B5D2681BEBC277008F744E /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,12 +61,7 @@
 		D06BA50E1BC847750063B8EC /* puzzles-xcode */ = {
 			isa = PBXGroup;
 			children = (
-				D06BA50F1BC847750063B8EC /* main.c */,
-				D0B5D2531BEAFFCC008F744E /* templates.h */,
-				D0B5D2541BEB0003008F744E /* sum_as_template.h */,
-				D0B5D2551BEB0031008F744E /* sum_as_template.c */,
-				D0B5D2571BEB009C008F744E /* all_possible_sums.c */,
-				D0B5D2581BEB009C008F744E /* all_possible_sums.h */,
+				D0B5D2681BEBC277008F744E /* main.cpp */,
 			);
 			path = "puzzles-xcode";
 			sourceTree = "<group>";
@@ -134,9 +122,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0B5D2591BEB009C008F744E /* all_possible_sums.c in Sources */,
-				D06BA5101BC847750063B8EC /* main.c in Sources */,
-				D0B5D2561BEB0031008F744E /* sum_as_template.c in Sources */,
+				D0B5D26B1BEBC277008F744E /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

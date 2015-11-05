@@ -10,6 +10,7 @@
 #define base64_scheme1_h
 
 #include "base64.h"
+#include <string>
 using namespace std;
 
 class base64_scheme1: public base64{
@@ -19,6 +20,7 @@ public:
     string decode(string const &source);
 
 private:
+    string mapping;
     bool check_base64(unsigned char c);
     
 };

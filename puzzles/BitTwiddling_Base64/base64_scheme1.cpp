@@ -9,6 +9,7 @@
 #include "base64_scheme1.h"
 #include <stdio.h>
 #include <vector>
+#include <iostream>
 using namespace std;
 
 
@@ -19,12 +20,19 @@ bool base64_scheme1::check_base64(unsigned char c) {
 string base64_scheme1::encode(string source){
     
     size_t len = source.length();
+    
+    // length checks not done
+    // return bool and take in an extra argument as string &result
+    // ==> bool base_64_scheme1::encode(string source, string &result)
+    // if len==0 return false
+    // if len<24 return fasle
+    
     const unsigned char *str = reinterpret_cast<const unsigned char*>(source.c_str());
     string res;
     string mapping = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
     
-    wchar_t vec_4[4];      // 4 groups of 6 bits each
-    wchar_t vec_3[3];      // 3 groups of 8 bits each
+    vector<unsigned char> vec_4(4);      // 4 groups of 6 bits each
+    vector<unsigned char> vec_3(3);      // 3 groups of 8 bits each
     
     int i = 0;
     
@@ -32,22 +40,24 @@ string base64_scheme1::encode(string source){
         vec_3[i++] = *(str++);
         
         // 24 bits accumulated!
+        // going left to right extract 6 bits at a time
         if(i==3){
-            vec_4[0] = (vec_3[0] & 0xfc) >> 2;
-            vec_4[1] = ((vec_3[0] & 0x03) << 4) + ((vec_3[1] & 0xf0) >> 4);
-            vec_4[2] = ((vec_3[1] & 0x0f) << 2) + ((vec_3[2] & 0xc0) >> 6);
-            vec_4[3] = vec_3[2] & 0x3f;
+            vec_4[0] = (vec_3[0] & 0xfc) >> 2;  // upper 6 bits of byte0
+            vec_4[1] = ((vec_3[0] & 0x03) << 4) + ((vec_3[1] & 0xf0) >> 4); // lower 2 of byte0 + upper 4 of byte1
+            vec_4[2] = ((vec_3[1] & 0x0f) << 2) + ((vec_3[2] & 0xc0) >> 6); // lower 4 of byte1 + upper 2 of byte2
+            vec_4[3] = vec_3[2] & 0x3f; // lower 6 of byte3
             
             // string
             for(i=0; i<4; i++)
-                res += mapping[vec_4[i]];
+                res += mapping[vec_4[i]];       // look into mapping using the six bits as index
             
             i = 0;
         }
     }
     
     // padding
-    
+    // we have total bytes that are not multiples of 3 bytes
+    // in that case add NULL Characters
     if(i){
         for(int j=i; j<3; j++)
             vec_3[j] = '\0';
@@ -76,8 +86,8 @@ string base64_scheme1::decode(string const &source) {
     int j = 0;
     int pos = 0;
     string mapping = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
-    wchar_t vec_4[4];     // 4 groups of 6 bits each
-    wchar_t vec_3[3];     // 3 groups of 8 bits each
+    vector<unsigned char> vec_4(4);     // 4 groups of 6 bits each
+    vector<unsigned char> vec_3(3);     // 3 groups of 8 bits each
     
     
     while (len-- && ( source[pos] != '=') && check_base64(source[pos])) {
@@ -87,7 +97,7 @@ string base64_scheme1::decode(string const &source) {
         // 24 bits accumulated!
         if (i ==4) {
             for (i = 0; i <4; i++)
-                vec_4[i] = mapping.find(vec_4[i]);
+                vec_4[i] = mapping.find(vec_4[i]);  // we're getting the index
             
             // coaleasce 8 bits together
             vec_3[0] = (vec_4[0] << 2) + ((vec_4[1] & 0x30) >> 4);
