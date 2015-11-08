@@ -34,6 +34,11 @@ public:
         return data.size();
     }
 
+    Str& operator+=(const Str& s){
+        std::copy(s.data.begin(), s.data.end(), std::back_inserter(data));
+        return *this;
+    }
+
 };
 
 // non-member function due to the nature of calling on Str object
@@ -64,12 +69,16 @@ std::istream& operator>>(std::istream& is, Str& s){
     return is;
 }
 
+Str operator+(const Str& s, const Str& t){
+    Str r = s;
+    r += t;
+    return r;
+}
+
 int main(){
     Str s = "hello";
-    std::cout << s[0] << std::endl;
-    std::cout << s;
-    std::cout << std::endl;
-    std::cin >> s;
-    std::cout << s;
+    Str t = " world";
+    Str u = s + t;
+    std::cout << u << std::endl;
     return 0;
 }
