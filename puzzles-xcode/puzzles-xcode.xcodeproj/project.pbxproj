@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D0B5D26B1BEBC277008F744E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0B5D2681BEBC277008F744E /* main.cpp */; settings = {ASSET_TAGS = (); }; };
+		D0B5D26D1BF1775B008F744E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0B5D26C1BF1775B008F744E /* main.cpp */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,6 +28,7 @@
 		D06BA5171BC848990063B8EC /* puzzles */ = {isa = PBXFileReference; lastKnownFileType = folder; name = puzzles; path = ../puzzles; sourceTree = "<group>"; };
 		D06BA5181BC88ACC0063B8EC /* BillWeinman_ExerciseFiles_CPP */ = {isa = PBXFileReference; lastKnownFileType = folder; name = BillWeinman_ExerciseFiles_CPP; path = ../BillWeinman_ExerciseFiles_CPP; sourceTree = "<group>"; };
 		D0B5D2681BEBC277008F744E /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		D0B5D26C1BF1775B008F744E /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../puzzles/CPP_DesignPatterns_Singleton/main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +45,7 @@
 		D06BA5031BC847740063B8EC = {
 			isa = PBXGroup;
 			children = (
+				D0B5D26C1BF1775B008F744E /* main.cpp */,
 				D06BA5181BC88ACC0063B8EC /* BillWeinman_ExerciseFiles_CPP */,
 				D06BA5171BC848990063B8EC /* puzzles */,
 				D06BA50E1BC847750063B8EC /* puzzles-xcode */,
@@ -122,6 +125,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0B5D26D1BF1775B008F744E /* main.cpp in Sources */,
 				D0B5D26B1BEBC277008F744E /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
