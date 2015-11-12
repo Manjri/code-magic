@@ -26,14 +26,15 @@ int foo(void* data)
 
 void init(callback_t* arg)
 {
-	int* ptr = malloc(sizeof(int));
+	int* ptr = (int*)malloc(sizeof(int));
 	arg->user_data = (void*)ptr;
-	arg->func_callback = &foo;
+    //arg->func_callback = &foo;
+    arg->func_callback = foo;
 }
 
 
 int main(void) {
-	callback_t* myCallBack = malloc(sizeof(callback_t));
+	callback_t* myCallBack = (callback_t*)malloc(sizeof(callback_t));
 	init(myCallBack);
 	printf("Value is: %d", myCallBack->func_callback(myCallBack->user_data));
 	return EXIT_SUCCESS;
