@@ -1,0 +1,2 @@
+clang -emit-llvm -c input.c -o temp.bc
+llc -march=cpp temp.bc -o output.cpp

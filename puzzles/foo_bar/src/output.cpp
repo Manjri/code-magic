@@ -35,40 +35,40 @@ int main(int argc, char**argv) {
 Module* makeLLVMModule() {
  // Module Construction
  Module* mod = new Module("temp.bc", getGlobalContext());
- mod->setDataLayout("0x7fab7ad02180");
+ mod->setDataLayout("0x7fe842d02910");
  mod->setTargetTriple("x86_64-apple-macosx10.11.0");
  
  // Type Definitions
- ArrayType* ArrayTy_0 = ArrayType::get(IntegerType::get(mod->getContext(), 8), 13);
+ PointerType* PointerTy_0 = PointerType::get(IntegerType::get(mod->getContext(), 32), 0);
  
- PointerType* PointerTy_1 = PointerType::get(ArrayTy_0, 0);
+ ArrayType* ArrayTy_1 = ArrayType::get(IntegerType::get(mod->getContext(), 8), 4);
  
- std::vector<Type*>FuncTy_2_args;
- FunctionType* FuncTy_2 = FunctionType::get(
+ PointerType* PointerTy_2 = PointerType::get(ArrayTy_1, 0);
+ 
+ std::vector<Type*>FuncTy_3_args;
+ FunctionType* FuncTy_3 = FunctionType::get(
   /*Result=*/Type::getVoidTy(mod->getContext()),
-  /*Params=*/FuncTy_2_args,
+  /*Params=*/FuncTy_3_args,
   /*isVarArg=*/false);
  
- PointerType* PointerTy_3 = PointerType::get(IntegerType::get(mod->getContext(), 8), 0);
- 
- std::vector<Type*>FuncTy_5_args;
- FuncTy_5_args.push_back(PointerTy_3);
- FunctionType* FuncTy_5 = FunctionType::get(
-  /*Result=*/IntegerType::get(mod->getContext(), 32),
-  /*Params=*/FuncTy_5_args,
-  /*isVarArg=*/true);
- 
- PointerType* PointerTy_4 = PointerType::get(FuncTy_5, 0);
+ PointerType* PointerTy_4 = PointerType::get(IntegerType::get(mod->getContext(), 8), 0);
  
  std::vector<Type*>FuncTy_6_args;
+ FuncTy_6_args.push_back(PointerTy_4);
  FunctionType* FuncTy_6 = FunctionType::get(
   /*Result=*/IntegerType::get(mod->getContext(), 32),
   /*Params=*/FuncTy_6_args,
+  /*isVarArg=*/true);
+ 
+ PointerType* PointerTy_5 = PointerType::get(FuncTy_6, 0);
+ 
+ std::vector<Type*>FuncTy_7_args;
+ FunctionType* FuncTy_7 = FunctionType::get(
+  /*Result=*/IntegerType::get(mod->getContext(), 32),
+  /*Params=*/FuncTy_7_args,
   /*isVarArg=*/false);
  
- PointerType* PointerTy_7 = PointerType::get(IntegerType::get(mod->getContext(), 32), 0);
- 
- PointerType* PointerTy_8 = PointerType::get(FuncTy_2, 0);
+ PointerType* PointerTy_8 = PointerType::get(FuncTy_3, 0);
  
  
  // Function Declarations
@@ -76,7 +76,7 @@ Module* makeLLVMModule() {
  Function* func_foo = mod->getFunction("foo");
  if (!func_foo) {
  func_foo = Function::Create(
-  /*Type=*/FuncTy_2,
+  /*Type=*/FuncTy_3,
   /*Linkage=*/GlobalValue::ExternalLinkage,
   /*Name=*/"foo", mod); 
  func_foo->setCallingConv(CallingConv::C);
@@ -102,7 +102,7 @@ Module* makeLLVMModule() {
  Function* func_printf = mod->getFunction("printf");
  if (!func_printf) {
  func_printf = Function::Create(
-  /*Type=*/FuncTy_5,
+  /*Type=*/FuncTy_6,
   /*Linkage=*/GlobalValue::ExternalLinkage,
   /*Name=*/"printf", mod); // (external, no body)
  func_printf->setCallingConv(CallingConv::C);
@@ -125,7 +125,7 @@ Module* makeLLVMModule() {
  Function* func_main = mod->getFunction("main");
  if (!func_main) {
  func_main = Function::Create(
-  /*Type=*/FuncTy_6,
+  /*Type=*/FuncTy_7,
   /*Linkage=*/GlobalValue::ExternalLinkage,
   /*Name=*/"main", mod); 
  func_main->setCallingConv(CallingConv::C);
@@ -151,8 +151,16 @@ Module* makeLLVMModule() {
  // Global Variable Declarations
 
  
+ GlobalVariable* gvar_int32_foo_x = new GlobalVariable(/*Module=*/*mod, 
+ /*Type=*/IntegerType::get(mod->getContext(), 32),
+ /*isConstant=*/false,
+ /*Linkage=*/GlobalValue::InternalLinkage,
+ /*Initializer=*/0, // has initializer, specified below
+ /*Name=*/"foo.x");
+ gvar_int32_foo_x->setAlignment(4);
+ 
  GlobalVariable* gvar_array__str = new GlobalVariable(/*Module=*/*mod, 
- /*Type=*/ArrayTy_0,
+ /*Type=*/ArrayTy_1,
  /*isConstant=*/true,
  /*Linkage=*/GlobalValue::PrivateLinkage,
  /*Initializer=*/0, // has initializer, specified below
@@ -160,16 +168,17 @@ Module* makeLLVMModule() {
  gvar_array__str->setAlignment(1);
  
  // Constant Definitions
- Constant *const_array_9 = ConstantDataArray::getString(mod->getContext(), "Hello World!", true);
- std::vector<Constant*> const_ptr_10_indices;
- ConstantInt* const_int32_11 = ConstantInt::get(mod->getContext(), APInt(32, StringRef("0"), 10));
- const_ptr_10_indices.push_back(const_int32_11);
- const_ptr_10_indices.push_back(const_int32_11);
- Constant* const_ptr_10 = ConstantExpr::getGetElementPtr(gvar_array__str, const_ptr_10_indices);
- ConstantInt* const_int32_12 = ConstantInt::get(mod->getContext(), APInt(32, StringRef("1"), 10));
+ ConstantInt* const_int32_9 = ConstantInt::get(mod->getContext(), APInt(32, StringRef("1"), 10));
+ Constant *const_array_10 = ConstantDataArray::getString(mod->getContext(), "%d\x0A", true);
+ std::vector<Constant*> const_ptr_11_indices;
+ ConstantInt* const_int32_12 = ConstantInt::get(mod->getContext(), APInt(32, StringRef("0"), 10));
+ const_ptr_11_indices.push_back(const_int32_12);
+ const_ptr_11_indices.push_back(const_int32_12);
+ Constant* const_ptr_11 = ConstantExpr::getGetElementPtr(gvar_array__str, const_ptr_11_indices);
  
  // Global Variable Definitions
- gvar_array__str->setInitializer(const_array_9);
+ gvar_int32_foo_x->setInitializer(const_int32_9);
+ gvar_array__str->setInitializer(const_array_10);
  
  // Function Definitions
  
@@ -179,11 +188,19 @@ Module* makeLLVMModule() {
   BasicBlock* label_13 = BasicBlock::Create(mod->getContext(), "",func_foo,0);
   
   // Block  (label_13)
-  CallInst* int32_14 = CallInst::Create(func_printf, const_ptr_10, "", label_13);
-  int32_14->setCallingConv(CallingConv::C);
-  int32_14->setTailCall(false);
-  AttributeSet int32_14_PAL;
-  int32_14->setAttributes(int32_14_PAL);
+  LoadInst* int32_14 = new LoadInst(gvar_int32_foo_x, "", false, label_13);
+  int32_14->setAlignment(4);
+  BinaryOperator* int32_15 = BinaryOperator::Create(Instruction::Add, int32_14, const_int32_9, "", label_13);
+  StoreInst* void_16 = new StoreInst(int32_15, gvar_int32_foo_x, false, label_13);
+  void_16->setAlignment(4);
+  std::vector<Value*> int32_17_params;
+  int32_17_params.push_back(const_ptr_11);
+  int32_17_params.push_back(int32_15);
+  CallInst* int32_17 = CallInst::Create(func_printf, int32_17_params, "", label_13);
+  int32_17->setCallingConv(CallingConv::C);
+  int32_17->setTailCall(false);
+  AttributeSet int32_17_PAL;
+  int32_17->setAttributes(int32_17_PAL);
   
   ReturnInst::Create(mod->getContext(), label_13);
   
@@ -192,19 +209,25 @@ Module* makeLLVMModule() {
  // Function: main (func_main)
  {
   
-  BasicBlock* label_16 = BasicBlock::Create(mod->getContext(), "",func_main,0);
+  BasicBlock* label_19 = BasicBlock::Create(mod->getContext(), "",func_main,0);
   
-  // Block  (label_16)
-  AllocaInst* ptr_17 = new AllocaInst(IntegerType::get(mod->getContext(), 32), "", label_16);
-  ptr_17->setAlignment(4);
-  StoreInst* void_18 = new StoreInst(const_int32_11, ptr_17, false, label_16);
-  CallInst* void_19 = CallInst::Create(func_foo, "", label_16);
-  void_19->setCallingConv(CallingConv::C);
-  void_19->setTailCall(false);
-  AttributeSet void_19_PAL;
-  void_19->setAttributes(void_19_PAL);
+  // Block  (label_19)
+  AllocaInst* ptr_20 = new AllocaInst(IntegerType::get(mod->getContext(), 32), "", label_19);
+  ptr_20->setAlignment(4);
+  StoreInst* void_21 = new StoreInst(const_int32_12, ptr_20, false, label_19);
+  CallInst* void_22 = CallInst::Create(func_foo, "", label_19);
+  void_22->setCallingConv(CallingConv::C);
+  void_22->setTailCall(false);
+  AttributeSet void_22_PAL;
+  void_22->setAttributes(void_22_PAL);
   
-  ReturnInst::Create(mod->getContext(), const_int32_11, label_16);
+  CallInst* void_23 = CallInst::Create(func_foo, "", label_19);
+  void_23->setCallingConv(CallingConv::C);
+  void_23->setTailCall(false);
+  AttributeSet void_23_PAL;
+  void_23->setAttributes(void_23_PAL);
+  
+  ReturnInst::Create(mod->getContext(), const_int32_12, label_19);
   
  }
  
