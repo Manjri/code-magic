@@ -73,7 +73,8 @@ void quicksort(int l, int u){
 int main(void) {
     //quicksort(0,4);	
     qSort1(arr, 0, 4);	
-    for(int i=0;i<5; i++)	
+    int i;
+    for(i=0;i<5; i++)	
         printf("%d", arr[i]);
     printf("\n");
 	return EXIT_SUCCESS;
