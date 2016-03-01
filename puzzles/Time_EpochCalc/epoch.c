@@ -12,6 +12,9 @@ const int ytab[2][12] = {
 													{31,29,31,30,31,30,31,31,30,31,30,31}
 												};
 
+const char* DAY_NAMES[7] = {"Sunday", "Monday", "Tuesday", "Wednesday"
+														"Thursday", "Friday", "Saturday"};
+
 long getSecondsSinceEpoch(int h, int m, int s, int day, int month, int year){
     int i,leapDays;
     long days;
@@ -52,10 +55,13 @@ void getTimeFromEpoch(long seconds){
 	long secs = 0;	//seconds after the min [0,60]
 	long min = 0;		//mins of the day [0,59]
 	long hour = 0;	//hours since midnight [0,23]
+	long wday = 0;	//days since Sunday [0,6]
 
 	secs = dayclock%60;
 	min = (dayclock%3600)/60;
 	hour = (dayclock/3600);
+	wday = (dayno + 4) % 7;	// day 0 was Thursday
+	
 
 	printf("Input Seconds: %ld\n",seconds);
 	printf("Dayclock: %ld\n",dayclock);
@@ -77,7 +83,7 @@ void getTimeFromEpoch(long seconds){
 	printf("Day = %ld\n",mday);
 	printf("Mon = %ld\n",mon+1);
 	printf("Year = %d\n",year+1900);
-	
+	printf("Weekday = %s\n",DAY_NAMES[wday]);
 }
 
 int main(){
