@@ -35,7 +35,7 @@ long getSecondsSinceEpoch(int h, int m, int s, int day, int month, int year){
     for (i = 1;i < month;i++) {
         days += DAYS_IN_MONTH[i - 1];
     }
-    days += (day-2);
+    days += (day-1);
     seconds = days * 86400;
 
     seconds += (h * 3600);
@@ -88,7 +88,7 @@ void getTimeFromEpoch(long seconds){
 
 int main(){
 
-	long seconds = getSecondsSinceEpoch(14,52,0,29,2,2016);
+	long seconds = getSecondsSinceEpoch(15,45,00,04,03,2016);
 	printf("%ld\n", seconds);
 	getTimeFromEpoch(seconds);
 	return 0;
