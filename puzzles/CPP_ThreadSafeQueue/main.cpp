@@ -1,3 +1,21 @@
+/**
+General idea of a thread safe queue or list
+
+write/push:
+    lock the mutex
+        add the event/item to the queue
+        signal the condition variable
+    unlock the mutex
+
+read/pop
+    lock the mutex
+        while(queue is empty)
+            wait on condition variable
+        remove the item from the queue
+    unlock the mutex
+    return the item
+*/
+
 #include <iostream>
 #include <mutex>
 #include <condition_variable>
