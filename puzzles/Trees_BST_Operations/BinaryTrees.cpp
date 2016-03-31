@@ -7,6 +7,8 @@
 //============================================================================
 
 #include <iostream>
+#include <queue>
+#include <stack>
 using namespace std;
 
 class BST
@@ -162,6 +164,131 @@ private:
 		return root;
 	}
 
+	void BinTreeLevelOrder(Node *root)
+	{
+		if(root){
+			// print root first!
+			cout << root->key;
+			cout << "\n";
+			queue<Node*> q;
+			int oldLevel = 0;
+			int newLevel = 0;
+			// insert into queue for the level
+			// L,R
+			if(root->left){
+				q.push(root->left);		
+				oldLevel++;
+			}
+			if(root->right){
+				q.push(root->right);	
+				oldLevel++;
+			}
+			while(!q.empty()){
+				Node *n = q.front();
+				
+				if(n->left){
+					q.push(n->left);
+					newLevel++;
+				}
+		
+				if(n->right){
+					q.push(n->right);
+					newLevel++;
+				}
+	
+				cout << n->key << " ";
+				q.pop();
+				oldLevel--;
+			
+				if(oldLevel == 0){
+						oldLevel = newLevel;
+						newLevel = 0;
+						cout << "\n";
+				}
+			}// while q non-empty
+
+		}
+	}
+
+void BinTreeZigZag(Node *root)
+{
+
+		if(root){
+			// print root first!
+			cout << root->key;
+			cout << "\n";
+			queue<Node*> q;
+			int oldLevel = 0;
+			int newLevel = 0;
+			int dir = 1;
+			bool reversed = false;
+			// insert into queue for the level
+			// L,R
+			if(root->left){
+				q.push(root->left);		
+				oldLevel++;
+			}
+			if(root->right){
+				q.push(root->right);	
+				oldLevel++;
+			}
+			while(!q.empty()){
+				Node *n = q.front();
+				
+				if(!reversed){
+					if(n->left){
+						q.push(n->left);
+						newLevel++;
+					}
+		
+					if(n->right){
+						q.push(n->right);
+						newLevel++;
+					}
+				}else{
+					if(n->right){
+						q.push(n->right);
+						newLevel++;
+					}
+		
+					if(n->left){
+						q.push(n->left);
+						newLevel++;
+					}
+				}
+				cout << n->key << " ";
+				q.pop();
+				oldLevel--;
+			
+				if(oldLevel == 0){
+						oldLevel = newLevel;
+						newLevel = 0;
+						//cout << "\n";
+						// reverse the order inside the queue
+						// to do that we can put it inside the stack and pull out
+						stack<Node*> s;
+						while(!q.empty()){
+							s.push(q.front());
+							//cout << (q.front())->key << " ";
+							q.pop();
+						}
+						//cout << "\n";
+						//cout << "After reversing ..\n";
+						while(!s.empty()){
+							q.push(s.top());
+							//cout << (s.top())->key << " ";
+							s.pop();
+						}
+					  cout << "\n";		
+						// flip the direction
+						reversed = true;
+				}
+			}// while q non-empty
+
+		}
+}
+
+
 public:
 	BST()
 	{
@@ -200,6 +327,17 @@ public:
 	{
 		root = BinTreeSearchAndDelete(root, data);
 	}
+
+	void printLevelOrder()
+	{
+		BinTreeLevelOrder(root);
+	}
+
+	void printZigZagOrder()
+	{
+		BinTreeZigZag(root);
+	}
+
 	~BST()
 	{
 		BinTreeDestroy(root);
@@ -213,14 +351,25 @@ int main()
 {
 	BST myBST;
 
-    myBST.insert(4);
-    myBST.insert(2);
-    myBST.insert(1);
-    myBST.insert(3);
-    myBST.insert(6);
+    myBST.insert(90);
+    myBST.insert(50);
+    myBST.insert(150);
+    myBST.insert(20);
+    myBST.insert(75);
+    myBST.insert(95);
+    myBST.insert(175);
     myBST.insert(5);
-    myBST.insert(7);
+    myBST.insert(25);
+    myBST.insert(66);
+    myBST.insert(80);
+    myBST.insert(92);
+    myBST.insert(111);
+    myBST.insert(166);
+    myBST.insert(200);
 
+
+
+#if 0
 	myBST.inOrder();
 	myBST.preOrder();
 	myBST.postOrder();
@@ -233,5 +382,10 @@ int main()
 	myBST.inOrder();
 
 	cout << "End of Operations!!" << endl; // prints
+#endif
+
+	myBST.printLevelOrder();
+	cout << "Now Zig-Zag" << "\n\n";
+	myBST.printZigZagOrder();
 	return 0;
 }
