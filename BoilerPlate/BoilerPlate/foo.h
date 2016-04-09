@@ -11,8 +11,10 @@
 
 #include <stdio.h>
 #include <iostream>
+#include <vector>
 
 void printNothing(void);
 void strReverse(char *);
-
+void testTriplets(void);
+std::vector<int> findTriplets(std::vector<int>, int);
 #endif /* foo_h */

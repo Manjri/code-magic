@@ -14,19 +14,18 @@
 int main(int argc, const char * argv[]) {
     
 #if 0
-    // insert code here...
-    //std::cout << "Hello, World!\n";
     char str[] = "nikhil";
     printNothing();
     std::cout << "Before: " << str << std::endl;  
     strReverse(str);
     std::cout << "After: " << str << std::endl;
-#endif
     //person p("nikhil");
     //p.aboutMe();
     //student s("shruti");
     //s.aboutMe();
     person *q = new student("nivu");
     q->aboutMe();
+#endif
+    testTriplets();
     return 0;
 }

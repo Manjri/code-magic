@@ -36,3 +36,56 @@ void strReverse(char *s){
         len--;
     }
 }
+
+
+std::vector<int> findTriplets(std::vector<int> input, int sum){
+    std::vector<int> result;
+    
+    for(int i=0; i<input.size()-1; i++){
+        int low = i+1;
+        int high = input.size()-1;
+        while(low < high){
+            int temp = input[i]+input[low]+input[high];
+            if(temp < sum)
+                low++;
+            else if(temp > sum)
+                high--;
+            else{
+                result.push_back(input[low]);
+                result.push_back(input[i]);
+                result.push_back(input[high]);
+                break;
+            }
+        }
+    }
+    return result;
+}
+
+void testTriplets(){
+    
+    std::vector<int> v;
+    v.push_back(12);
+    v.push_back(3);
+    v.push_back(4);
+    v.push_back(1);
+    v.push_back(6);
+    v.push_back(9);
+    
+    std::vector<int> result = findTriplets(v, 24);
+    
+    if(result.size() == 0)
+        std::cout << "No triplets found!" << std::endl;
+    else{
+        for(auto i : result)
+            std::cout << i << " ";
+    }
+}
+
+
+
+
+
+
+
+
+
