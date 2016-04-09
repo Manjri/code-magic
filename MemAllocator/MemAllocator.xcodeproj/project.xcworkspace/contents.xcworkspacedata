@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Apple.xcodeproj">
+      location = "self:MemAllocator.xcodeproj">
    </FileRef>
 </Workspace>

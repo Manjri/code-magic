@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Apple.xcscheme</key>
+		<key>MemAllocator.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,7 +12,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>D033577F1CB8611C008E9EE6</key>
+		<key>D03357921CB98046008E9EE6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
