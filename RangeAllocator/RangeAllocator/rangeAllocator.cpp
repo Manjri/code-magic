@@ -1,11 +1,3 @@
-//
-//  rangeAllocator.cpp
-//  RangeAllocator
-//
-//  Created by Nikhil Jagdale on 4/9/16.
-//  Copyright © 2016 Nikhil Jagdale. All rights reserved.
-//
-
 #include "rangeAllocator.h"
 #define __DEBUG__RA
 
@@ -55,8 +47,7 @@ void RangeAllocator::printFreeList(){
     std::cout << "--------------------------" << std::endl;
 }
 
-vaddr_t RangeAllocator::allocate_range(size_t length,
-                               allocation_flags flags, vaddr_t optional_hint)
+vaddr_t RangeAllocator::_allocateAny(size_t length)
 {
     vaddr_t ptr;
     size_t block_length = getBlockSize(length, this->granularity);
@@ -65,7 +56,7 @@ vaddr_t RangeAllocator::allocate_range(size_t length,
     
     while(f){
         // First Fit - find the right free block
-        if(length>f->size){
+        if(block_length>f->size){
             prev = f;
             f = f->next;
             continue;
@@ -89,18 +80,214 @@ vaddr_t RangeAllocator::allocate_range(size_t length,
     }
     
     return (vaddr_t)-1;
+}
+
+vaddr_t RangeAllocator::_allocateAbove(size_t length, vaddr_t targetAddr)
+{
+    vaddr_t ptr;
+    size_t block_length = getBlockSize(length, this->granularity);
+    freeBlock *f = freeList;
+    freeBlock *prev = nullptr;
     
-#ifdef NAIVE
-    if((free_addr + block_length)>limit)
-        ptr = (vaddr_t)-1;
-    else{
-        ptr = free_addr;    //GET_ALIGNED(free_addr, alignment);
-        free_addr += block_length;
+    while(f){
+        
+        // Start address of free block ahead of targetAddr!!
+        if((vaddr_t)f<targetAddr &&
+           (targetAddr-(vaddr_t)f +1 + block_length)<=f->size){
+
+            // 2 blocks will have to be made
+            // save off the current free block info
+            size_t freeBlockSize = f->size;
+            freeBlock *freeBlockNext = f->next;
+            size_t delta = (targetAddr - (reinterpret_cast<vaddr_t>(f)) + 1);
+            
+            freeBlock *newBlock1 = f;
+            newBlock1->size = delta;
+        
+            f = (freeBlock*)(vaddr_t(reinterpret_cast<vaddr_t>(f) + delta));
+            // remaining space can be converted into a new free block
+            freeBlock* newBlock2 = (freeBlock*)(reinterpret_cast<vaddr_t>(f) + block_length);
+            newBlock2->size = (freeBlockSize - block_length - newBlock1->size);
+            newBlock2->next = freeBlockNext;
+            
+            newBlock1->next = newBlock2;
+            
+            if(prev==nullptr){  // first block used!
+                freeList = newBlock1;
+            }else{
+                prev->next = newBlock1;
+            }
+            // new free block is the start of the allocation
+            ptr = (vaddr_t)f;
+#ifdef __DEBUG__RA
+            printf("Alloc:\tPtr:%lx\tSize:%lu\n", ptr, block_length);
+            printf("NewBlock1:%lx\tSize:%lu\n", (vaddr_t)newBlock1, newBlock1->size);
+            printf("NewBlock2:%lx\tSize:%lu\n", (vaddr_t)newBlock2, newBlock2->size);
+#endif
+            return ptr;
+        }else{
+            prev = f;
+            f = f->next;
+            continue;
+        }
+    }
+    return (vaddr_t)-1;
+}
+
+vaddr_t RangeAllocator::_allocateBelow(size_t length, vaddr_t targetAddr)
+{
+    vaddr_t ptr;
+    size_t block_length = getBlockSize(length, this->granularity);
+    freeBlock *f = freeList;
+    freeBlock *prev = nullptr;
+    
+    while(f){
+        
+        // Start & end address of free block below targetAddr!!
+        if((vaddr_t)f<targetAddr && block_length<=f->size &&
+           ((vaddr_t)f + block_length)<targetAddr){
+            
+            // remaining space can be converted into a new free block
+            freeBlock* newBlock = (freeBlock*)(reinterpret_cast<vaddr_t>(f) + block_length);
+            newBlock->size = (f->size - block_length);
+            newBlock->next = f->next;
+            
+            if(prev==nullptr){  // first block used!
+                freeList = newBlock;
+            }else{
+                prev->next = newBlock;
+            }
+            // new free block is the start of the allocation
+            ptr = (vaddr_t)f;
+#ifdef __DEBUG__RA
+            printf("Alloc:\tPtr:%lx\tSize:%lu\n", ptr, block_length);
+            printf("NewBlock:%lx\tSize:%lu\n", (vaddr_t)newBlock,newBlock->size);
+#endif
+            return ptr;
+        }else{
+            prev = f;
+            f = f->next;
+            continue;
+        }
+    }
+    return (vaddr_t)-1;
+}
+
+vaddr_t RangeAllocator::_allocateExact(size_t length, vaddr_t targetAddr)
+{
+    vaddr_t ptr;
+    size_t block_length = getBlockSize(length, this->granularity);
+    freeBlock *f = freeList;
+    freeBlock *prev = nullptr;
+    
+    while(f){
+        
+        // Start address of free block ahead/equal of targetAddr!!
+        if((vaddr_t)f<=targetAddr &&
+           (targetAddr-(vaddr_t)f +1 + block_length)<=f->size){
+            
+            // 2 blocks will have to be made
+            // save off the current free block info
+            size_t freeBlockSize = f->size;
+            freeBlock *freeBlockNext = f->next;
+            size_t delta = (targetAddr - (reinterpret_cast<vaddr_t>(f)) + 1);
+            
+            freeBlock *newBlock1 = f;
+            newBlock1->size = delta-1;
+            
+            f = (freeBlock*)targetAddr;
+            // remaining space can be converted into a new free block
+            freeBlock* newBlock2 = (freeBlock*)(reinterpret_cast<vaddr_t>(f) + block_length);
+            newBlock2->size = (freeBlockSize - block_length - newBlock1->size);
+            newBlock2->next = freeBlockNext;
+            
+            newBlock1->next = newBlock2;
+            
+            if(prev==nullptr){  // first block used!
+                freeList = newBlock1;
+            }else{
+                prev->next = newBlock1;
+            }
+            // new free block is the start of the allocation
+            ptr = (vaddr_t)f;
+#ifdef __DEBUG__RA
+            printf("Alloc:\tPtr:%lx\tSize:%lu\n", ptr, block_length);
+            printf("NewBlock1:%lx\tSize:%lu\n", (vaddr_t)newBlock1, newBlock1->size);
+            printf("NewBlock2:%lx\tSize:%lu\n", (vaddr_t)newBlock2, newBlock2->size);
+#endif
+            return ptr;
+        }else{
+            prev = f;
+            f = f->next;
+            continue;
+        }
+    }
+    return (vaddr_t)-1;
+}
+
+vaddr_t RangeAllocator::allocate_range(size_t length,
+                                       allocation_flags flags, vaddr_t optional_hint){
+    vaddr_t ptr;
+    
+    switch (flags) {
+        case ALLOCATE_ANY:
+            ptr = _allocateAny(length);
+            break;
+        case ALLOCATE_BELOW:
+            ptr = _allocateBelow(length, optional_hint);
+            break;
+        case ALLOCATE_ABOVE:
+            ptr = _allocateAbove(length, optional_hint);
+            break;
+        case ALLOCATE_EXACT:
+            ptr = _allocateExact(length, optional_hint);
+            break;
+        default:
+            break;
     }
     return ptr;
+}
+
+void RangeAllocator::free_range(vaddr_t base, size_t length){
+    
+    // find the free block that is immediately higher than this block
+    freeBlock* fb = freeList;
+    freeBlock* prev = nullptr;
+    size_t blockLength = getBlockSize(length, this->granularity);
+    
+    while(fb){
+        if((vaddr_t)fb >= (base+blockLength))
+            break;
+        prev = fb;
+        fb = fb->next;
+    }
+    
+    freeBlock* newBlock = (freeBlock*)base;
+    newBlock->size = blockLength;
+    vaddr_t blockEnd = (vaddr_t)newBlock+newBlock->size;
+    
+    if(prev == nullptr){
+        prev = (freeBlock*)base;
+        prev->size = blockLength;
+        prev->next = fb;
+        freeList = prev;
+    }else if((vaddr_t)((vaddr_t)prev+prev->size)==(vaddr_t)(freeBlock*)base){
+        prev->size += blockLength;
+    }else{
+        newBlock->next = prev->next;
+        prev->next = newBlock;
+        prev = newBlock;
+    }
+    if(fb && (vaddr_t)fb==blockEnd){
+        prev->size += fb->size;
+        prev->next = fb->next;
+    }
+#ifdef __DEBUG__RA
+    printf("Dealloc:\tPtr:%lx\tSize:%lu\n", (vaddr_t)prev, prev->size);
 #endif
 }
 
+#if 0
 void RangeAllocator::free_range(vaddr_t base, size_t length){
     
     // find the free block that is immediately higher than this block
@@ -134,6 +321,8 @@ void RangeAllocator::free_range(vaddr_t base, size_t length){
     printf("Dealloc:\tPtr:%lx\tSize:%lu\n", (vaddr_t)newBlock, newBlock->size);
 #endif
 }
+#endif
+
 
 RangeAllocator::~RangeAllocator()
 {

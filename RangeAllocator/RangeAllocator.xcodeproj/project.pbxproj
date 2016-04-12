@@ -31,6 +31,7 @@
 		D07178E71CB99C52005FE700 /* rangeAllocator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rangeAllocator.cpp; sourceTree = "<group>"; };
 		D0D291651CBB34E50086D90E /* tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tests.cpp; sourceTree = "<group>"; };
 		D0D291661CBB34E50086D90E /* tests.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = tests.hpp; sourceTree = "<group>"; };
+		D0D291681CBCC5FB0086D90E /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +69,7 @@
 				D07178E71CB99C52005FE700 /* rangeAllocator.cpp */,
 				D0D291651CBB34E50086D90E /* tests.cpp */,
 				D0D291661CBB34E50086D90E /* tests.hpp */,
+				D0D291681CBCC5FB0086D90E /* README.txt */,
 			);
 			path = RangeAllocator;
 			sourceTree = "<group>";

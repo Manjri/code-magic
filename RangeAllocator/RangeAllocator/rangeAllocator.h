@@ -49,6 +49,14 @@ private:
     }freeBlock;
     
     freeBlock* freeList;
+    
+    vaddr_t _allocateAny(size_t length);
+    
+    vaddr_t _allocateExact(size_t length, vaddr_t optional_hint);
+    
+    vaddr_t _allocateAbove(size_t length,vaddr_t optional_hint);
+    
+    vaddr_t _allocateBelow(size_t length, vaddr_t optional_hint);
 };
 
 #endif

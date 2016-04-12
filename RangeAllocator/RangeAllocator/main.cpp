@@ -1,20 +1,11 @@
-//
-//  main.cpp
-//  RangeAllocator
-//
-//  Created by Nikhil Jagdale on 4/9/16.
-//  Copyright © 2016 Nikhil Jagdale. All rights reserved.
-//
-
 #include <iostream>
 #include "rangeAllocator.h"
 #include "tests.hpp"
 
 #define __DEBUG__MAIN
-#define SIZE        (1024*1024UL)
+//#define SIZE        (1024*1024UL)
+#define SIZE  (1024L)
 #define RANGE_SIZE  (1024L)
-
-
 
 int main(int argc, const char * argv[]) {
 
