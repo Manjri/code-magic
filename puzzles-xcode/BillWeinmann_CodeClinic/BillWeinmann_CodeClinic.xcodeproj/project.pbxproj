@@ -7,13 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D0B5D26B1BEBC277008F744E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0B5D2681BEBC277008F744E /* main.cpp */; };
-		D0B5D26D1BF1775B008F744E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0B5D26C1BF1775B008F744E /* main.cpp */; };
-		D0B5D26F1BF1C093008F744E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0B5D26E1BF1C093008F744E /* main.cpp */; };
+		D0829D261CAF854000CA241D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0829D251CAF854000CA241D /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		D06BA50A1BC847750063B8EC /* CopyFiles */ = {
+		D0829D201CAF854000CA241D /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -25,16 +23,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		D06BA50C1BC847750063B8EC /* puzzles-xcode */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "puzzles-xcode"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D06BA5171BC848990063B8EC /* puzzles */ = {isa = PBXFileReference; lastKnownFileType = folder; name = puzzles; path = ../puzzles; sourceTree = "<group>"; };
-		D06BA5181BC88ACC0063B8EC /* BillWeinman_ExerciseFiles_CPP */ = {isa = PBXFileReference; lastKnownFileType = folder; name = BillWeinman_ExerciseFiles_CPP; path = ../BillWeinman_ExerciseFiles_CPP; sourceTree = "<group>"; };
-		D0B5D2681BEBC277008F744E /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		D0B5D26C1BF1775B008F744E /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../puzzles/CPP_DesignPatterns_Singleton/main.cpp; sourceTree = "<group>"; };
-		D0B5D26E1BF1C093008F744E /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../puzzles/CPP_DesignPatterns_Composite/main.cpp; sourceTree = "<group>"; };
+		D0829D221CAF854000CA241D /* BillWeinmann_CodeClinic */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BillWeinmann_CodeClinic; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0829D251CAF854000CA241D /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		D06BA5091BC847750063B8EC /* Frameworks */ = {
+		D0829D1F1CAF854000CA241D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -44,100 +38,94 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D06BA5031BC847740063B8EC = {
+		D0829D191CAF854000CA241D = {
 			isa = PBXGroup;
 			children = (
-				D0B5D26C1BF1775B008F744E /* main.cpp */,
-				D0B5D26E1BF1C093008F744E /* main.cpp */,
-				D06BA5181BC88ACC0063B8EC /* BillWeinman_ExerciseFiles_CPP */,
-				D06BA5171BC848990063B8EC /* puzzles */,
-				D06BA50E1BC847750063B8EC /* puzzles-xcode */,
-				D06BA50D1BC847750063B8EC /* Products */,
+				D0829D241CAF854000CA241D /* BillWeinmann_CodeClinic */,
+				D0829D231CAF854000CA241D /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		D06BA50D1BC847750063B8EC /* Products */ = {
+		D0829D231CAF854000CA241D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D06BA50C1BC847750063B8EC /* puzzles-xcode */,
+				D0829D221CAF854000CA241D /* BillWeinmann_CodeClinic */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D06BA50E1BC847750063B8EC /* puzzles-xcode */ = {
+		D0829D241CAF854000CA241D /* BillWeinmann_CodeClinic */ = {
 			isa = PBXGroup;
 			children = (
-				D0B5D2681BEBC277008F744E /* main.cpp */,
+				D0829D251CAF854000CA241D /* main.cpp */,
 			);
-			path = "puzzles-xcode";
+			path = BillWeinmann_CodeClinic;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D06BA50B1BC847750063B8EC /* puzzles-xcode */ = {
+		D0829D211CAF854000CA241D /* BillWeinmann_CodeClinic */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D06BA5131BC847750063B8EC /* Build configuration list for PBXNativeTarget "puzzles-xcode" */;
+			buildConfigurationList = D0829D291CAF854000CA241D /* Build configuration list for PBXNativeTarget "BillWeinmann_CodeClinic" */;
 			buildPhases = (
-				D06BA5081BC847750063B8EC /* Sources */,
-				D06BA5091BC847750063B8EC /* Frameworks */,
-				D06BA50A1BC847750063B8EC /* CopyFiles */,
+				D0829D1E1CAF854000CA241D /* Sources */,
+				D0829D1F1CAF854000CA241D /* Frameworks */,
+				D0829D201CAF854000CA241D /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "puzzles-xcode";
-			productName = "puzzles-xcode";
-			productReference = D06BA50C1BC847750063B8EC /* puzzles-xcode */;
+			name = BillWeinmann_CodeClinic;
+			productName = BillWeinmann_CodeClinic;
+			productReference = D0829D221CAF854000CA241D /* BillWeinmann_CodeClinic */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		D06BA5041BC847750063B8EC /* Project object */ = {
+		D0829D1A1CAF854000CA241D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Nikhil Jagdale";
 				TargetAttributes = {
-					D06BA50B1BC847750063B8EC = {
-						CreatedOnToolsVersion = 7.0.1;
+					D0829D211CAF854000CA241D = {
+						CreatedOnToolsVersion = 7.2;
 					};
 				};
 			};
-			buildConfigurationList = D06BA5071BC847750063B8EC /* Build configuration list for PBXProject "puzzles-xcode" */;
+			buildConfigurationList = D0829D1D1CAF854000CA241D /* Build configuration list for PBXProject "BillWeinmann_CodeClinic" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = D06BA5031BC847740063B8EC;
-			productRefGroup = D06BA50D1BC847750063B8EC /* Products */;
+			mainGroup = D0829D191CAF854000CA241D;
+			productRefGroup = D0829D231CAF854000CA241D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D06BA50B1BC847750063B8EC /* puzzles-xcode */,
+				D0829D211CAF854000CA241D /* BillWeinmann_CodeClinic */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		D06BA5081BC847750063B8EC /* Sources */ = {
+		D0829D1E1CAF854000CA241D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0B5D26D1BF1775B008F744E /* main.cpp in Sources */,
-				D0B5D26B1BEBC277008F744E /* main.cpp in Sources */,
-				D0B5D26F1BF1C093008F744E /* main.cpp in Sources */,
+				D0829D261CAF854000CA241D /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		D06BA5111BC847750063B8EC /* Debug */ = {
+		D0829D271CAF854000CA241D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -154,6 +142,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -179,7 +168,7 @@
 			};
 			name = Debug;
 		};
-		D06BA5121BC847750063B8EC /* Release */ = {
+		D0829D281CAF854000CA241D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -196,6 +185,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -214,19 +204,16 @@
 			};
 			name = Release;
 		};
-		D06BA5141BC847750063B8EC /* Debug */ = {
+		D0829D2A1CAF854000CA241D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_WARN_PEDANTIC = YES;
-				"OTHER_CFLAGS[arch=*]" = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		D06BA5151BC847750063B8EC /* Release */ = {
+		D0829D2B1CAF854000CA241D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_WARN_PEDANTIC = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -234,25 +221,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D06BA5071BC847750063B8EC /* Build configuration list for PBXProject "puzzles-xcode" */ = {
+		D0829D1D1CAF854000CA241D /* Build configuration list for PBXProject "BillWeinmann_CodeClinic" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D06BA5111BC847750063B8EC /* Debug */,
-				D06BA5121BC847750063B8EC /* Release */,
+				D0829D271CAF854000CA241D /* Debug */,
+				D0829D281CAF854000CA241D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D06BA5131BC847750063B8EC /* Build configuration list for PBXNativeTarget "puzzles-xcode" */ = {
+		D0829D291CAF854000CA241D /* Build configuration list for PBXNativeTarget "BillWeinmann_CodeClinic" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D06BA5141BC847750063B8EC /* Debug */,
-				D06BA5151BC847750063B8EC /* Release */,
+				D0829D2A1CAF854000CA241D /* Debug */,
+				D0829D2B1CAF854000CA241D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = D06BA5041BC847750063B8EC /* Project object */;
+	rootObject = D0829D1A1CAF854000CA241D /* Project object */;
 }
