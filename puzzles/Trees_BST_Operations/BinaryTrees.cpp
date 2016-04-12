@@ -220,8 +220,7 @@ void BinTreeZigZag(Node *root)
 			queue<Node*> q;
 			int oldLevel = 0;
 			int newLevel = 0;
-			int dir = 1;
-			bool reversed = false;
+			int reversed = 1;
 			// insert into queue for the level
 			// L,R
 			if(root->left){
@@ -235,7 +234,7 @@ void BinTreeZigZag(Node *root)
 			while(!q.empty()){
 				Node *n = q.front();
 				
-				if(!reversed){
+				if(reversed){
 					if(n->left){
 						q.push(n->left);
 						newLevel++;
@@ -281,7 +280,7 @@ void BinTreeZigZag(Node *root)
 						}
 					  cout << "\n";		
 						// flip the direction
-						reversed = true;
+						reversed = 1^reversed;
 				}
 			}// while q non-empty
 

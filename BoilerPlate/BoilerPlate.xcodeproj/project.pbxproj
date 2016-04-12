@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D0B5D26B1BEBC277008F744E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0B5D2681BEBC277008F744E /* main.cpp */; };
-		D0B5D26D1BF1775B008F744E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0B5D26C1BF1775B008F744E /* main.cpp */; };
-		D0B5D26F1BF1C093008F744E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D0B5D26E1BF1C093008F744E /* main.cpp */; };
+		D03357551CB44C99008E9EE6 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D03357541CB44C99008E9EE6 /* main.cpp */; };
+		D033575D1CB44CC1008E9EE6 /* foo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D033575B1CB44CC1008E9EE6 /* foo.cpp */; };
+		D03357601CB58FBA008E9EE6 /* person.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D033575E1CB58FBA008E9EE6 /* person.cpp */; };
+		D03357631CB59241008E9EE6 /* student.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D03357611CB59241008E9EE6 /* student.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		D06BA50A1BC847750063B8EC /* CopyFiles */ = {
+		D033574F1CB44C99008E9EE6 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -25,16 +26,18 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		D06BA50C1BC847750063B8EC /* puzzles-xcode */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "puzzles-xcode"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D06BA5171BC848990063B8EC /* puzzles */ = {isa = PBXFileReference; lastKnownFileType = folder; name = puzzles; path = ../puzzles; sourceTree = "<group>"; };
-		D06BA5181BC88ACC0063B8EC /* BillWeinman_ExerciseFiles_CPP */ = {isa = PBXFileReference; lastKnownFileType = folder; name = BillWeinman_ExerciseFiles_CPP; path = ../BillWeinman_ExerciseFiles_CPP; sourceTree = "<group>"; };
-		D0B5D2681BEBC277008F744E /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		D0B5D26C1BF1775B008F744E /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../puzzles/CPP_DesignPatterns_Singleton/main.cpp; sourceTree = "<group>"; };
-		D0B5D26E1BF1C093008F744E /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../puzzles/CPP_DesignPatterns_Composite/main.cpp; sourceTree = "<group>"; };
+		D03357511CB44C99008E9EE6 /* BoilerPlate */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BoilerPlate; sourceTree = BUILT_PRODUCTS_DIR; };
+		D03357541CB44C99008E9EE6 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		D033575B1CB44CC1008E9EE6 /* foo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = foo.cpp; sourceTree = "<group>"; };
+		D033575C1CB44CC1008E9EE6 /* foo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = foo.h; sourceTree = "<group>"; };
+		D033575E1CB58FBA008E9EE6 /* person.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = person.cpp; sourceTree = "<group>"; };
+		D033575F1CB58FBA008E9EE6 /* person.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = person.hpp; sourceTree = "<group>"; };
+		D03357611CB59241008E9EE6 /* student.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = student.cpp; sourceTree = "<group>"; };
+		D03357621CB59241008E9EE6 /* student.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = student.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		D06BA5091BC847750063B8EC /* Frameworks */ = {
+		D033574E1CB44C99008E9EE6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -44,103 +47,107 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D06BA5031BC847740063B8EC = {
+		D03357481CB44C99008E9EE6 = {
 			isa = PBXGroup;
 			children = (
-				D0B5D26C1BF1775B008F744E /* main.cpp */,
-				D0B5D26E1BF1C093008F744E /* main.cpp */,
-				D06BA5181BC88ACC0063B8EC /* BillWeinman_ExerciseFiles_CPP */,
-				D06BA5171BC848990063B8EC /* puzzles */,
-				D06BA50E1BC847750063B8EC /* puzzles-xcode */,
-				D06BA50D1BC847750063B8EC /* Products */,
+				D03357531CB44C99008E9EE6 /* BoilerPlate */,
+				D03357521CB44C99008E9EE6 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		D06BA50D1BC847750063B8EC /* Products */ = {
+		D03357521CB44C99008E9EE6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D06BA50C1BC847750063B8EC /* puzzles-xcode */,
+				D03357511CB44C99008E9EE6 /* BoilerPlate */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D06BA50E1BC847750063B8EC /* puzzles-xcode */ = {
+		D03357531CB44C99008E9EE6 /* BoilerPlate */ = {
 			isa = PBXGroup;
 			children = (
-				D0B5D2681BEBC277008F744E /* main.cpp */,
+				D03357541CB44C99008E9EE6 /* main.cpp */,
+				D033575B1CB44CC1008E9EE6 /* foo.cpp */,
+				D033575C1CB44CC1008E9EE6 /* foo.h */,
+				D033575E1CB58FBA008E9EE6 /* person.cpp */,
+				D033575F1CB58FBA008E9EE6 /* person.hpp */,
+				D03357611CB59241008E9EE6 /* student.cpp */,
+				D03357621CB59241008E9EE6 /* student.hpp */,
 			);
-			path = "puzzles-xcode";
+			path = BoilerPlate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D06BA50B1BC847750063B8EC /* puzzles-xcode */ = {
+		D03357501CB44C99008E9EE6 /* BoilerPlate */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D06BA5131BC847750063B8EC /* Build configuration list for PBXNativeTarget "puzzles-xcode" */;
+			buildConfigurationList = D03357581CB44C99008E9EE6 /* Build configuration list for PBXNativeTarget "BoilerPlate" */;
 			buildPhases = (
-				D06BA5081BC847750063B8EC /* Sources */,
-				D06BA5091BC847750063B8EC /* Frameworks */,
-				D06BA50A1BC847750063B8EC /* CopyFiles */,
+				D033574D1CB44C99008E9EE6 /* Sources */,
+				D033574E1CB44C99008E9EE6 /* Frameworks */,
+				D033574F1CB44C99008E9EE6 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "puzzles-xcode";
-			productName = "puzzles-xcode";
-			productReference = D06BA50C1BC847750063B8EC /* puzzles-xcode */;
+			name = BoilerPlate;
+			productName = BoilerPlate;
+			productReference = D03357511CB44C99008E9EE6 /* BoilerPlate */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		D06BA5041BC847750063B8EC /* Project object */ = {
+		D03357491CB44C99008E9EE6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Nikhil Jagdale";
 				TargetAttributes = {
-					D06BA50B1BC847750063B8EC = {
-						CreatedOnToolsVersion = 7.0.1;
+					D03357501CB44C99008E9EE6 = {
+						CreatedOnToolsVersion = 7.3;
 					};
 				};
 			};
-			buildConfigurationList = D06BA5071BC847750063B8EC /* Build configuration list for PBXProject "puzzles-xcode" */;
+			buildConfigurationList = D033574C1CB44C99008E9EE6 /* Build configuration list for PBXProject "BoilerPlate" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = D06BA5031BC847740063B8EC;
-			productRefGroup = D06BA50D1BC847750063B8EC /* Products */;
+			mainGroup = D03357481CB44C99008E9EE6;
+			productRefGroup = D03357521CB44C99008E9EE6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D06BA50B1BC847750063B8EC /* puzzles-xcode */,
+				D03357501CB44C99008E9EE6 /* BoilerPlate */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		D06BA5081BC847750063B8EC /* Sources */ = {
+		D033574D1CB44C99008E9EE6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0B5D26D1BF1775B008F744E /* main.cpp in Sources */,
-				D0B5D26B1BEBC277008F744E /* main.cpp in Sources */,
-				D0B5D26F1BF1C093008F744E /* main.cpp in Sources */,
+				D03357601CB58FBA008E9EE6 /* person.cpp in Sources */,
+				D033575D1CB44CC1008E9EE6 /* foo.cpp in Sources */,
+				D03357551CB44C99008E9EE6 /* main.cpp in Sources */,
+				D03357631CB59241008E9EE6 /* student.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		D06BA5111BC847750063B8EC /* Debug */ = {
+		D03357561CB44C99008E9EE6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -154,6 +161,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -179,10 +187,11 @@
 			};
 			name = Debug;
 		};
-		D06BA5121BC847750063B8EC /* Release */ = {
+		D03357571CB44C99008E9EE6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -196,6 +205,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -214,19 +224,16 @@
 			};
 			name = Release;
 		};
-		D06BA5141BC847750063B8EC /* Debug */ = {
+		D03357591CB44C99008E9EE6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_WARN_PEDANTIC = YES;
-				"OTHER_CFLAGS[arch=*]" = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		D06BA5151BC847750063B8EC /* Release */ = {
+		D033575A1CB44C99008E9EE6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_WARN_PEDANTIC = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -234,25 +241,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D06BA5071BC847750063B8EC /* Build configuration list for PBXProject "puzzles-xcode" */ = {
+		D033574C1CB44C99008E9EE6 /* Build configuration list for PBXProject "BoilerPlate" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D06BA5111BC847750063B8EC /* Debug */,
-				D06BA5121BC847750063B8EC /* Release */,
+				D03357561CB44C99008E9EE6 /* Debug */,
+				D03357571CB44C99008E9EE6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D06BA5131BC847750063B8EC /* Build configuration list for PBXNativeTarget "puzzles-xcode" */ = {
+		D03357581CB44C99008E9EE6 /* Build configuration list for PBXNativeTarget "BoilerPlate" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D06BA5141BC847750063B8EC /* Debug */,
-				D06BA5151BC847750063B8EC /* Release */,
+				D03357591CB44C99008E9EE6 /* Debug */,
+				D033575A1CB44C99008E9EE6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = D06BA5041BC847750063B8EC /* Project object */;
+	rootObject = D03357491CB44C99008E9EE6 /* Project object */;
 }
