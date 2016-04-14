@@ -33,6 +33,16 @@ Node* reverseList(Node* head)
 	return prev;
 }
 
+void printReverseListRecursive(Node *head){
+
+    if(head){
+    
+        printReverseListRecursive(head->next);
+        printf("%d ", head->val);
+    }
+}
+
+
 Node* push(Node* head, int val)
 {
 	Node* n = malloc(sizeof(Node));
@@ -75,5 +85,8 @@ int main(void) {
 
 	printLL(head);
 
+    printf("\nNow printing reversed list recursively\n");
+    printReverseListRecursive(head);
+	printf("\n");
 	return EXIT_SUCCESS;
 }
