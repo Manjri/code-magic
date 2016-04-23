@@ -30,6 +30,7 @@ vector<string> letterCombinations(string digits)
                 tempres.push_back(res[j]+chars[c]); // build the string
                 cout << std::string(res[j]+chars[c]) << endl;
             }
+        cout << "Assigning tempres to res\n";
         res = tempres;
     }
     return res;
@@ -39,7 +40,7 @@ vector<string> letterCombinations(string digits)
 int main()
 {
 	vector<string> result;
-	result = letterCombinations(std::string("234"));
+	result = letterCombinations(std::string("23"));
 	cout << result.size() << endl;
 
 	for(std::vector<string>::iterator it = result.begin(); it != result.end(); it++)
