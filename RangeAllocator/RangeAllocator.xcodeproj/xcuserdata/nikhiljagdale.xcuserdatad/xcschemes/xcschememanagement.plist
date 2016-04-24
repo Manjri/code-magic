@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>BoilerPlate.xcscheme</key>
+		<key>RangeAllocator.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,7 +12,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>D03357501CB44C99008E9EE6</key>
+		<key>D07178DB1CB99B87005FE700</key>
 		<dict>
 			<key>primary</key>
 			<true/>
