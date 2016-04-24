@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#define __APPLE_BARRIERS
+//#define __APPLE_BARRIERS
 
 
 #ifdef __APPLE_BARRIERS
@@ -75,22 +75,30 @@ static void* threadFunc(void* arg){
     
     long threadNum = (long)arg;
     int s, nsecs;
+	
+		srandom(time(NULL) + threadNum);
 
     printf("Thead %ld started\n",threadNum);
 
-    printf("Thread %ld about to wait on barrier\n",threadNum);
-    
+		nsecs = random()%5 + 1;	// sleep for 1-5 seconds
+		sleep(nsecs);
+
+		printf("Thread %ld about to wait on barrier "
+		          "after sleeping %d seconds\n", threadNum, nsecs);
+
     s = pthread_barrier_wait(&barrier);
 
     if(s == 0)
-        printf("\nThread %ld waiting on the barrier with return val 0\n"
-                        ,threadNum);
-    
-    else if(s == 1)
-        printf("\nThread %ld passing the the barrier with return val 1\n"                   ,threadNum); 
-    else{
+        printf("\nThread %ld passing the the barrier with return val 0\n"                   ,threadNum); 
+    else if(s == PTHREAD_BARRIER_SERIAL_THREAD){
+    		printf("Thread %ld passed barrie with return value"
+                    " PTHREAD_BARRIER_SERIAL_THREAD\n", threadNum);
+    			
+    		usleep(100000);
+    		printf("\n");
     }
 
+		usleep(200000);
     printf("Thread %ld resuming!\n", threadNum);
 
     return NULL;
@@ -122,6 +130,13 @@ int main(){
             printf("Pthread create failied\n");
 
     }    
+		usleep(100000);
+		printf("\n");
+
+		// Wait for all threads to terminate
+		for(threadNum=0; threadNum<numThreads; threadNum++){
+			s = pthread_join(tid[threadNum], NULL);
+		}
 
     return 0;
 }
