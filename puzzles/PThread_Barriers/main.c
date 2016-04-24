@@ -3,11 +3,13 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-//#define __APPLE_BARRIERS
+#define __APPLE_BARRIERS
 
 
 #ifdef __APPLE_BARRIERS
 
+#include <unistd.h>
+#define PTHREAD_BARRIER_SERIAL_THREAD 1
 typedef int pthread_barrierattr_t;
 typedef struct
 {
@@ -89,12 +91,12 @@ static void* threadFunc(void* arg){
     s = pthread_barrier_wait(&barrier);
 
     if(s == 0)
-        printf("\nThread %ld passing the the barrier with return val 0\n"                   ,threadNum); 
+        printf("Thread %ld passing the the barrier with return val 0\n"                   ,threadNum); 
     else if(s == PTHREAD_BARRIER_SERIAL_THREAD){
-    		printf("Thread %ld passed barrie with return value"
-                    " PTHREAD_BARRIER_SERIAL_THREAD\n", threadNum);
+    		printf("\n!! Thread %ld passing barrier with return value"
+                    " PTHREAD_BARRIER_SERIAL_THREAD!!\n", threadNum);
     			
-    		usleep(100000);
+    		//usleep(100000);
     		printf("\n");
     }
 
