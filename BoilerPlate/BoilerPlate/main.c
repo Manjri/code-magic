@@ -6,11 +6,10 @@
 //  Copyright © 2016 Nikhil Jagdale. All rights reserved.
 //
 
-#include <iostream>
-#include "subsets.hpp"
-
+#include "tictactoe.h"
+#define N 3
 
 int main(int argc, const char * argv[]) {
-    testPrintAllSubsets();
+    playNGames(N);
     return 0;
 }
