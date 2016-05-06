@@ -5,13 +5,12 @@
 //  Created by Nikhil Jagdale on 4/5/16.
 //  Copyright © 2016 Nikhil Jagdale. All rights reserved.
 //
-#include <stdio.h>
-#include "countWays.h"
 
+#include "2D_Pointers.h"
 
 int main(int argc, const char * argv[]) {
 
-    test_climb_stairs(4);
+    test_2d_arrays();
     
     return 0;
 }
