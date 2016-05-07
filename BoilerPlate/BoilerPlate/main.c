@@ -6,11 +6,12 @@
 //  Copyright © 2016 Nikhil Jagdale. All rights reserved.
 //
 
-#include "2D_Pointers.h"
+#include <stdio.h>
 
-int main(int argc, const char * argv[]) {
 
-    test_2d_arrays();
-    
-    return 0;
+
+// Driver program to test above functions
+int main()
+{
+
 }
