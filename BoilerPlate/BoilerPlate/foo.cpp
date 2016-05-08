@@ -43,7 +43,7 @@ std::vector<int> findTriplets(std::vector<int> input, int sum){
     
     for(int i=0; i<input.size()-1; i++){
         int low = i+1;
-        int high = input.size()-1;
+        long high = input.size()-1;
         while(low < high){
             int temp = input[i]+input[low]+input[high];
             if(temp < sum)
