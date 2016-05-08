@@ -5,22 +5,22 @@
 //  Created by Nikhil Jagdale on 4/5/16.
 //  Copyright © 2016 Nikhil Jagdale. All rights reserved.
 //
-#include <stdio.h>
-#include <limits.h>
+
+#include "findLongestConsecutive.h"
 
 void printLongestConsecutive(int *arr, int n){
     
-    unsigned int numMap[UINT_MAX] = {0};
+    unsigned int numMap[100] = {0};
     unsigned int maxCount = 0;
     unsigned int maxStart = 0;
     unsigned int lastSeen = -1;
     unsigned int tempCount = 0;
     unsigned int tempStart = 0;
     for(int i=0; i<n; i++){
-        numMap[arr[n]]++;
+        numMap[arr[i]]++;
     }
 
-    for(int i=0; i<UINT_MAX; i++){
+    for(int i=0; i<100; i++){
 
         if(numMap[i]){
             if(i==0){
@@ -37,21 +37,23 @@ void printLongestConsecutive(int *arr, int n){
                         maxStart = tempStart;
                     }
                 }else{
-                    tempCount = 0;
+                    tempCount = 1;
                     tempStart = i;
                     lastSeen = i;
                 }
             }
         }
     }
-    printf("Printing longest consecutive range: \n");
+    printf("Printing longiest consecutive range: \n");
     for(int i=0; i<maxCount; i++)
-        printf("%d ", numMap[maxStart+i]);
+        printf("%d ", maxStart+i);
     printf("\n");
 }
 
-int main()
+
+int testLongestConsecutive()
 {
-    int arr[] = {1,9,3,10,4,20,2};
+    int arr[] = {36,41,56,35,44,33,34,92,43,32,42};
     printLongestConsecutive(arr, sizeof(arr)/sizeof(arr[0]));
+    return 0;
 }
