@@ -93,7 +93,8 @@ int main(void) {
 		printf("%d ", a[i]);
 	}
 
-	QSort(a, 10);
+	//QSort(a, 10);
+	QuickSort(a, 0, 9);
 	printf("\n");
 
 	for(i = 0; i<10; i++)
@@ -101,5 +102,6 @@ int main(void) {
 		printf("%d ", a[i]);
 	}
 
+	printf("\n");
 	return EXIT_SUCCESS;
 }
